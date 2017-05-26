@@ -1,0 +1,2 @@
+D,N,K,L,Grafo Original,Conectividade Algebrica,Aresta HP,Conectividade Aumentada HP,Aresta HE,Conectividade Aumentada HE,Aresta FB1,Conectividade Aumentada FB,Aresta FB2,Conectividade Aumentada FB2,Melhor Heuristica
+38,76,1,38,"T(1, 38, 38)",0.0028982253388643974,"(1, 39)",0.010959964106213639,"(1, 38)",0.011344633923189518,"(11, 71)",0.017083641238601389,"(11, 57)",0.017083641238600851,HE
