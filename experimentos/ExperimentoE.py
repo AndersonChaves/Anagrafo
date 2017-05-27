@@ -135,7 +135,7 @@ class ExperimentoE(Experimento):
             grafo_he = dicionario_de_resultados["novo_grafo_he2"]
             arestas_he = [dicionario_de_resultados["aresta_he1"], dicionario_de_resultados["aresta_he2"]]
 
-            DesenhistaDeGrafos().plotarGrafoEmDiretorioDeAcordoComVetorFiedler_ressaltando_arestas(
+            DesenhistaDeGrafos().plotar_grafo_em_diretorio_de_acordo_com_vetor_fiedler_ressaltando_arestas(
                 grafo_fb, path + '\\' + grafo_fb.obter_nome(), arestas_fb)
             posicao = 0
             novo_registro = {}

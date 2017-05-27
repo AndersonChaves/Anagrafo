@@ -30,6 +30,9 @@ class Grafo:
             self.__conectividade_algebrica = round(self.__conectividade_algebrica, 12)
         return self.__conectividade_algebrica
 
+    def obter_lista_de_vertices(self):
+        return self.grafo_nx.nodes()
+
     def obter_particionamento_pelo_vetor_fiedler(self):
         vertices_positivos = []
         vertices_negativos = []

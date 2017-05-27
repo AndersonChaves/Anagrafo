@@ -9,6 +9,7 @@ from AlgoritmoHeuristicaDePerturbacao import AlgoritmoHeuristicaDePerturbacao
 from AlgoritmoHeuristicaDeExcentricidadeEGrau import AlgoritmoHeuristicaDeExcentricidadeEGrau
 from AlgoritmoHeuristicaDeForcaBruta import AlgoritmoHeuristicaDeForcaBruta
 from AlgoritmoHeuristicaDeForcaBruta import AlgoritmoHeuristicaDeForcaBrutaParaMaisDeUmaAresta
+import os
 
 """Descrição do Experimento: Este experimento tem como objetivo verificar o aumento
 da conectividade algébrica em grafos do tipo 'broom', de diâmetro d = 4 a 40. 
@@ -40,12 +41,12 @@ class ExperimentoF(Experimento):
                                "G + Ehe2",
                                "Melhor Heurística"]
         self.tabela_de_resultados = Tabela(lista_de_parametros,
-                                           "ExperimentoF - D=4a20")
+                                           "ExperimentoF - d=16a20")
 
     def gerar_grafos_a_serem_analisados(self):
-        ordem_maxima = 20 #20
+        ordem_maxima = 20
         listas_de_grafos_por_diametro = []
-        for diametro in range(4, 21): #41
+        for diametro in range(16, 21): #41
             listas_de_grafos_por_ordem = GeradorDeGrafos().gerar_listas_de_arvores_t_por_diametro_variando_ordem_com_k_fixado(
                 ordem_maxima = ordem_maxima, diametro = diametro, k = 1)
             listas_de_grafos_por_diametro.append(listas_de_grafos_por_ordem)
@@ -125,17 +126,14 @@ class ExperimentoF(Experimento):
         else: print "Campo não determinado" + nome_do_campo
 
     def criar_tabela_de_resultados(self, dados_do_experimento):
-        path = "Resultados\\ExperimentoE\\Grafos"
+        path = "Resultados\\ExperimentoF\\Grafos"
         for dicionario_de_resultados in dados_do_experimento:
-            grafo_fb = dicionario_de_resultados["novo_grafo_fb2"]
-            arestas_fb = [dicionario_de_resultados["aresta_fb1"], dicionario_de_resultados["aresta_fb2"]]
-            grafo_hp = dicionario_de_resultados["novo_grafo_hp2"]
-            arestas_hp = [dicionario_de_resultados["aresta_hp1"], dicionario_de_resultados["aresta_hp2"]]
-            grafo_he = dicionario_de_resultados["novo_grafo_he2"]
-            arestas_he = [dicionario_de_resultados["aresta_he1"], dicionario_de_resultados["aresta_he2"]]
-
-            DesenhistaDeGrafos().plotarGrafoEmDiretorioDeAcordoComVetorFiedler_ressaltando_arestas(
-                grafo_fb, path + '\\' + grafo_fb.obter_nome(), arestas_fb)
+            grafo_fb = dicionario_de_resultados["novo_grafo_fb*"]
+            arestas_fb = dicionario_de_resultados["arestas_fb*"]
+            #grafo_hp = dicionario_de_resultados["novo_grafo_hp2"]
+            #arestas_hp = [dicionario_de_resultados["aresta_hp1"], dicionario_de_resultados["aresta_hp2"]]
+            #grafo_he = dicionario_de_resultados["novo_grafo_he2"]
+            #arestas_he = [dicionario_de_resultados["aresta_he1"], dicionario_de_resultados["aresta_he2"]]
             posicao = 0
             novo_registro = {}
             for campo in self.tabela_de_resultados.obter_campos():
@@ -143,3 +141,13 @@ class ExperimentoF(Experimento):
                 posicao += 1
             self.tabela_de_resultados.adicionar_linha(novo_registro)
         return self.tabela_de_resultados
+
+    def plotar_grafos_em_diretorio(self, dados_do_experimento):
+        diretorio = self.diretorio_do_resultado + '\\Grafos'
+        if not os.path.exists(diretorio):
+            os.makedirs(diretorio)
+        for dicionario_de_resultados in dados_do_experimento:
+            grafo_fb = dicionario_de_resultados["novo_grafo_fb*"]
+            arestas_fb = dicionario_de_resultados["arestas_fb*"]
+            DesenhistaDeGrafos().plotar_grafo_em_diretorio_de_acordo_com_vetor_fiedler_ressaltando_arestas(
+                grafo_fb, diretorio + '\\' + grafo_fb.obter_nome(), arestas_fb)

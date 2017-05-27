@@ -24,11 +24,16 @@ class Experimento():
 
 
     def executar_experimento(self):
+        tempo_inicial = time.time()
+        print "Iniciando Experimento"
+
         grafos_a_serem_analisados = self.gerar_grafos_a_serem_analisados()
         dados_do_experimento = self.gerar_dados_do_experimento(grafos_a_serem_analisados)
         self.persistir_dados_do_experimento(dados_do_experimento)
         print "Experimento Concluído"
         print "Tabela de resultados salva em " + self.diretorio_do_resultado + '\\' + self.tabela_de_resultados.obter_titulo()  + '.csv'
+        tempo_final = time.time()
+        print "Tempo total: " + str(tempo_final - tempo_inicial)
 
     @abstractmethod
     def gerar_grafos_a_serem_analisados(self):
@@ -52,9 +57,14 @@ class Experimento():
         self.tabela_de_resultados = self.criar_tabela_de_resultados(dados_do_experimento)
         self.diretorio_do_resultado = self.formatar_diretorio_de_resultados()
         EscritorDeDados().escrever_objeto_tabela_em_arquivo_csv(self.tabela_de_resultados, self.diretorio_do_resultado)
+        self.plotar_grafos_em_diretorio(dados_do_experimento)
 
     @abstractmethod
     def criar_tabela_de_resultados(self, dados_do_experimento):
+        raise NotImplementedError()
+
+    @abstractmethod
+    def plotar_grafos_em_diretorio(self, dados_do_experimento):
         raise NotImplementedError()
 
     def executar_heuristica(self, grafo_original, algoritmo_de_heuristica):

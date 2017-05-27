@@ -55,19 +55,16 @@ def obter_arestas_ligando_particoes(grafo, particao_a, particao_b):
             if grafo.grafo_nx.has_edge(vertice_a, vertice_b):
                 arestas.append((vertice_a, vertice_b))
 
-    print "aresta ligando " + str(particao_a) + "a " + str(particao_b) + str(arestas)
     return arestas
 
 def _calcular_valor_cheeger(grafo, particao_a, particao_b):
     delta_a = obter_arestas_ligando_particoes(grafo, particao_a, particao_b)
     valor_cheeger = float(len(delta_a)) / float(len(particao_a))
-    print "Valor Cheeger = ", valor_cheeger
     return valor_cheeger
 
 
 def calcular_parametros_isoperimetricos(grafo):
-    print "\n\n Calculando!"
-
+    print "Calculando numero isoperimetrico", grafo.obter_nome()
     lista = grafo.grafo_nx.nodes()
     menor_valor_cheeger = 999999
     particao_a_resultante = lista
@@ -94,16 +91,3 @@ def calcular_numero_isoperimetrico(grafo):
     _, resultado = calcular_parametros_isoperimetricos(grafo)
     return resultado
 
-
-#Resultado Incorreto
-'''def cheeger(G):
-    grafo_nx = G.grafo_nx
-    k_maximo = grafo_nx.order()/2
-    minimo = 9999
-    for k in range(1, k_maximo):
-      resultado = min(float(len(nx.node_boundary(grafo_nx, nn))) / k for nn in combinations(grafo_nx, k_maximo))
-      if resultado < minimo:
-          minimo = resultado
-    return minimo
-
-'''

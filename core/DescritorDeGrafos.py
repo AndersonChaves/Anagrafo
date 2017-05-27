@@ -10,7 +10,7 @@ class Descritor_de_grafos:
     def __init__(self, grafo):
         self.grafo = grafo
 
-    def obter_memo_de_informacoes_do_grafo(self):
+    def gerar_memo_de_informacoes_do_grafo(self):
         texto = 'Grafo:'
         texto += str(self.grafo.obter_nome()) + '\n\n'
 
@@ -46,7 +46,7 @@ class Descritor_de_grafos:
         periferia = [v + 1 for v in nx.periphery(self.grafo.grafo_nx)]
         texto += "Periferia: " + str(periferia)+ '\n'
         texto += "Densidade: " + str(nx.density(self.grafo.grafo_nx)) + '\n\n'
-
+        texto += "Numero Isoperimetrico: " + str(CalculoDeVetores.calcular_numero_isoperimetrico(self.grafo)) + '\n\n'
         #texto += str(CalculoDeVetores.cheeger(self.grafo))
 
         return texto
