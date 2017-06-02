@@ -70,8 +70,7 @@ class Experimento():
     def executar_heuristica(self, grafo_original, algoritmo_de_heuristica):
         novo_grafo = grafo_original.copia()
         gerador_de_heuristica = GeradorDeHeuristica(algoritmo_de_heuristica)
-        aresta_candidata = gerador_de_heuristica.estimar_aresta_de_maior_aumento_da_conectividade_algebrica(novo_grafo)
-        return aresta_candidata
+        return gerador_de_heuristica.estimar_aresta_de_maior_aumento_da_conectividade_algebrica(novo_grafo)
 
     def formatar_diretorio_de_resultados(self):
         return self.diretorio_do_resultado + "\\" + self.tabela_de_resultados.obter_titulo()

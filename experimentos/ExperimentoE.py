@@ -27,23 +27,23 @@ class ExperimentoE(Experimento):
                                "L",
                                "Grafo Original",
                                "Conectividade Algebrica",
-                               "Aresta Efb1",
-                               "G + Efb1",
-                               "Aresta Efb2",
-                               "G + Efb2",
+                               #"Aresta Efb1",
+                               #"G + Efb1",
+                               #"Aresta Efb2",
+                               #"G + Efb2",
                                "Arestas Efb*", #força bruta acrescentando 2 arestas simultaneamente
-                               "G + Efb*",
-                               "Aresta Ehp1",
-                               "G + Ehp1",
-                               "Aresta Ehp2",
-                               "G + Ehp2",
-                               "Aresta Ehe1",
-                               "G + Ehe1",
-                               "Aresta Ehe2",
-                               "G + Ehe2",
-                               "Melhor Heurística"]
+                               "G + Efb*"]
+                               #"Aresta Ehp1",
+                               #"G + Ehp1",
+                               #"Aresta Ehp2",
+                               #"G + Ehp2",
+                               #"Aresta Ehe1",
+                               #"G + Ehe1",
+                               #"Aresta Ehe2",
+                               #"G + Ehe2",
+                               #"Melhor Heurística"]
         self.tabela_de_resultados = Tabela(lista_de_parametros,
-                                           "Experimento E")
+                                           "Experimento E - novo")
 
     def gerar_grafos_a_serem_analisados(self):
         ordem_maxima = 20
@@ -63,7 +63,7 @@ class ExperimentoE(Experimento):
         grafo_hp = grafo.copia()
         grafo_he = grafo.copia()
         grafo_fb = grafo.copia()
-        for k in range(1, 3):
+        '''for k in range(1, 0):#alterar
             dicionario_de_resultados["aresta_hp" + str(k)] = self.executar_heuristica(grafo_hp, AlgoritmoHeuristicaDePerturbacao())
             dicionario_de_resultados["novo_grafo_hp" + str(k)] = grafo_hp.adicionar_aresta(dicionario_de_resultados["aresta_hp" + str(k)]).copia()
 
@@ -71,7 +71,7 @@ class ExperimentoE(Experimento):
             dicionario_de_resultados["novo_grafo_he" + str(k)] = grafo_he.adicionar_aresta(dicionario_de_resultados["aresta_he" + str(k)]).copia()
 
             dicionario_de_resultados["aresta_fb" + str(k)] = self.executar_heuristica(grafo_fb, AlgoritmoHeuristicaDeForcaBruta())
-            dicionario_de_resultados["novo_grafo_fb" + str(k)] = grafo_fb.adicionar_aresta(dicionario_de_resultados["aresta_fb" + str(k)]).copia()
+            dicionario_de_resultados["novo_grafo_fb" + str(k)] = grafo_fb.adicionar_aresta(dicionario_de_resultados["aresta_fb" + str(k)]).copia()'''
 
         dicionario_de_resultados["arestas_fb*"] = self.executar_heuristica(grafo.copia(), AlgoritmoHeuristicaDeForcaBrutaParaMaisDeUmaAresta())
         dicionario_de_resultados["novo_grafo_fb*"] = grafo.copia().adicionar_arestas(dicionario_de_resultados["arestas_fb*"])
@@ -126,17 +126,7 @@ class ExperimentoE(Experimento):
         else: print "Campo não determinado" + nome_do_campo
 
     def criar_tabela_de_resultados(self, dados_do_experimento):
-        path = "Resultados\\ExperimentoE\\Grafos"
         for dicionario_de_resultados in dados_do_experimento:
-            grafo_fb = dicionario_de_resultados["novo_grafo_fb2"]
-            arestas_fb = [dicionario_de_resultados["aresta_fb1"], dicionario_de_resultados["aresta_fb2"]]
-            grafo_hp = dicionario_de_resultados["novo_grafo_hp2"]
-            arestas_hp = [dicionario_de_resultados["aresta_hp1"], dicionario_de_resultados["aresta_hp2"]]
-            grafo_he = dicionario_de_resultados["novo_grafo_he2"]
-            arestas_he = [dicionario_de_resultados["aresta_he1"], dicionario_de_resultados["aresta_he2"]]
-
-            DesenhistaDeGrafos().plotar_grafo_em_diretorio_de_acordo_com_vetor_fiedler_ressaltando_arestas(
-                grafo_fb, path + '\\' + grafo_fb.obter_nome(), arestas_fb)
             posicao = 0
             novo_registro = {}
             for campo in self.tabela_de_resultados.obter_campos():
@@ -144,3 +134,11 @@ class ExperimentoE(Experimento):
                 posicao += 1
             self.tabela_de_resultados.adicionar_linha(novo_registro)
         return self.tabela_de_resultados
+
+    def plotar_grafos_em_diretorio(self, dados_do_experimento):
+        path = "Resultados\\ExperimentoENovo\\Grafos"
+        for dicionario_de_resultados in dados_do_experimento:
+            grafo_fb = dicionario_de_resultados["novo_grafo_fb2"]
+            arestas_fb = [dicionario_de_resultados["aresta_fb1"], dicionario_de_resultados["aresta_fb2"]]
+            DesenhistaDeGrafos().plotar_grafo_em_diretorio_de_acordo_com_vetor_fiedler_ressaltando_arestas(
+                grafo_fb, path + '\\' + grafo_fb.obter_nome(), arestas_fb)

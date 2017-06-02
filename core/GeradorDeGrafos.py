@@ -3,7 +3,7 @@ import networkx as nx
 from Grafo import Grafo
 from ArvoreT import ArvoreT
 import math
-
+from Starlike import StarlikeTipo1
 
 class GeradorDeGrafos():
 
@@ -97,44 +97,54 @@ class GeradorDeGrafos():
             nome = 'Caminho(' + str(n) + ')'
         return Grafo(nx.path_graph(n), nome)
 
+    def gerar_starlike_como_matriz_de_adjacencias(self, tamanhos_dos_ramos):
+        #Quantidade de nos
+        n = 1
+        for t in tamanhos_dos_ramos:
+            n += t
+        matriz = np.zeros((n, n))
 
-'''
-Exemplo:
-    matrizDeAdjacencias = np.array([[0, 0, 1, 0, 0, 0, 0],  #
-                                    [0, 0, 1, 0, 0, 0, 0],  # '<---K = 2'
-                                    [1, 1, 0, 1, 0, 0, 0],  #
-                                    [0, 0, 1, 0, 1, 1, 1],  #
-                                    [0, 0, 0, 1, 0, 0, 0],  # '<--K + diam'
-                                    [0, 0, 0, 1, 0, 0, 0],  #
-                                    [0, 0, 0, 1, 0, 0, 0]])  #
-'''
+        #preenchendo valores referentes a vertice de grau maximo
+        r = 1
+        for t in tamanhos_dos_ramos:
+            matriz[0][r] = 1
+            matriz[r][0] = 1
+            r = r + t
 
-'''import numpy.linalg as linalg
+        #preenchendo valores referentes aos ramos
+        i = 1
+        j = 0
+        for t in tamanhos_dos_ramos:
+            if t > 1:
+                for j in range(i, i+t - 1):
+                    matriz[j][j+1] = 1
+                    matriz[j+1][j] = 1
+            i = i + t
+        return matriz
+
+    def gerar_starlike_como_nx(self, tamanhos_dos_ramos):
+        return nx.from_numpy_matrix(self.gerar_starlike_como_matriz_de_adjacencias(tamanhos_dos_ramos))
+
+    def gerar_starlike(self, tamanhos_dos_ramos):
+        grafo_nx = self.gerar_starlike_como_nx(tamanhos_dos_ramos)
+        nome = "T("
+        i = 0
+        for i in range(len(tamanhos_dos_ramos)):
+            nome += str(tamanhos_dos_ramos[i])
+            if i < len(tamanhos_dos_ramos)-1:
+                nome += ', '
+        nome += ')'
+        return StarlikeTipo1(nx.Graph(grafo_nx), nome)
+
+    def gerar_lista_de_starlikes_de_mesma_altura_por_numero_de_ramos_e_n_maximo(self, numero_de_ramos, n_maximo):
+        lista_de_grafos = []
+        l = 1
+        n = numero_de_ramos * l + 1
+        while n <= n_maximo:
+            lista_de_ramos = [l] * numero_de_ramos
+            lista_de_grafos.append(self.gerar_starlike(lista_de_ramos))
+            l += 1
+            n = numero_de_ramos * l + 1
+        return lista_de_grafos
 
 
-A = np.asmatrix([[2, 0], [0, 4]])
-print "A = "
-print A
-
-D = np.asmatrix([[2, 3], [1, 3]])
-print "D = "
-print D
-
-
-Dinv = linalg.inv(D)
-print "D^-1 = "
-print Dinv
-
-
-B  = Dinv * A * D
-print "B = D^-1 * A * D = "
-print B
-
-
-print "autovalores, autovetores de A:"
-print linalg.eig(A)
-
-print "autovalores, autovetores de B:"
-print linalg.eig(B)
-
-'''

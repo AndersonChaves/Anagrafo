@@ -11,13 +11,9 @@ from AlgoritmoHeuristicaDeForcaBruta import AlgoritmoHeuristicaDeForcaBruta
 from AlgoritmoHeuristicaDeForcaBruta import AlgoritmoHeuristicaDeForcaBrutaParaMaisDeUmaAresta
 import os
 
-"""Descrição do Experimento: Este experimento tem como objetivo verificar o aumento
-da conectividade algébrica em grafos do tipo 'broom', de diâmetro d = 4 a 20. 
-quando submetidos aos algoritmos de Heurística de Excentricidade e Heurística de perturbação. 
-Diferente dos anteriores, este experimento irá efetuar a inclusão de duas arestas nos
-grafos em questão (k = 2)."""
+"""Experimento de testes, para corrigir problemas no experimento E anterior"""
 
-class ExperimentoF(Experimento):
+class ExperimentoTeste(Experimento):
     def __init__(self):
         lista_de_parametros = ["D",
                                "N",
@@ -25,35 +21,48 @@ class ExperimentoF(Experimento):
                                "L",
                                "Grafo Original",
                                "Conectividade Algebrica",
-                               "Aresta Efb1",
-                               "G + Efb1",
-                               "Aresta Efb2",
-                               "G + Efb2",
+                               #"Aresta Efb1",
+                               #"G + Efb1",
+                               #"Aresta Efb2",
+                               #"G + Efb2",
                                "Arestas Efb*",
-                               "G + Efb*",
-                               "Aresta Ehp1",
-                               "G + Ehp1",
-                               "Aresta Ehp2",
-                               "G + Ehp2",
-                               "Aresta Ehe1",
-                               "G + Ehe1",
-                               "Aresta Ehe2",
-                               "G + Ehe2",
-                               "Melhor Heurística"]
+                               "G + Efb*"
+                               #"Aresta Ehp1",
+                               #"G + Ehp1",
+                               #"Aresta Ehp2",
+                               #"G + Ehp2",
+                               #"Aresta Ehe1",
+                               #"G + Ehe1",
+                               #"Aresta Ehe2",
+                               #"G + Ehe2",
+                               ]#"Melhor Heurística"]
         self.tabela_de_resultados = Tabela(lista_de_parametros,
-                                           "ExperimentoF - d=16a20 (2905)")
+                                           "ExperimentoE - d=3 (2905)")
+
+    #def gerar_grafos_a_serem_analisados(self):
+    #    ordem_maxima = 20
+    #    listas_de_grafos_por_diametro = []
+    #    for diametro in range(9, 16):
+    #        listas_de_grafos_por_ordem = GeradorDeGrafos().gerar_listas_de_arvores_t_por_diametro_variando_ordem_com_k_fixado(
+    #            ordem_maxima = ordem_maxima, diametro = diametro, k = 1)
+    #        listas_de_grafos_por_diametro.append(listas_de_grafos_por_ordem)
+
+    #    lista_de_grafos = []
+    #    for lista_de_grafos_por_diametro in listas_de_grafos_por_diametro:
+    #            lista_de_grafos = lista_de_grafos + lista_de_grafos_por_diametro
+    #    return lista_de_grafos
 
     def gerar_grafos_a_serem_analisados(self):
         ordem_maxima = 20
         listas_de_grafos_por_diametro = []
-        for diametro in range(16, 21):
-            listas_de_grafos_por_ordem = GeradorDeGrafos().gerar_listas_de_arvores_t_por_diametro_variando_ordem_com_k_fixado(
-                ordem_maxima = ordem_maxima, diametro = diametro, k = 1)
+        for diametro in [3, 4]:
+            listas_de_grafos_por_ordem = GeradorDeGrafos().gerar_listas_de_arvores_t_por_diametro_variando_ordem(ordem_maxima,                                                                        diametro)
             listas_de_grafos_por_diametro.append(listas_de_grafos_por_ordem)
 
         lista_de_grafos = []
-        for lista_de_grafos_por_diametro in listas_de_grafos_por_diametro:
-                lista_de_grafos = lista_de_grafos + lista_de_grafos_por_diametro
+        for listas_de_grafos_por_ordem in listas_de_grafos_por_diametro:
+            for lista in listas_de_grafos_por_ordem:
+                lista_de_grafos = lista_de_grafos + lista
         return lista_de_grafos
 
     def obter_dados_de_grafo(self, grafo):
@@ -61,15 +70,15 @@ class ExperimentoF(Experimento):
         grafo_hp = grafo.copia()
         grafo_he = grafo.copia()
         grafo_fb = grafo.copia()
-        for k in range(1, 3):
-            dicionario_de_resultados["aresta_hp" + str(k)] = self.executar_heuristica(grafo_hp, AlgoritmoHeuristicaDePerturbacao())
-            dicionario_de_resultados["novo_grafo_hp" + str(k)] = grafo_hp.adicionar_aresta(dicionario_de_resultados["aresta_hp" + str(k)]).copia()
+        #for k in range(1, 3):
+            #dicionario_de_resultados["aresta_hp" + str(k)] = self.executar_heuristica(grafo_hp, AlgoritmoHeuristicaDePerturbacao())
+            #dicionario_de_resultados["novo_grafo_hp" + str(k)] = grafo_hp.adicionar_aresta(dicionario_de_resultados["aresta_hp" + str(k)]).copia()
 
-            dicionario_de_resultados["aresta_he" + str(k)] = self.executar_heuristica(grafo_he, AlgoritmoHeuristicaDeExcentricidadeEGrau())
-            dicionario_de_resultados["novo_grafo_he" + str(k)] = grafo_he.adicionar_aresta(dicionario_de_resultados["aresta_he" + str(k)]).copia()
+            #dicionario_de_resultados["aresta_he" + str(k)] = self.executar_heuristica(grafo_he, AlgoritmoHeuristicaDeExcentricidadeEGrau())
+            #dicionario_de_resultados["novo_grafo_he" + str(k)] = grafo_he.adicionar_aresta(dicionario_de_resultados["aresta_he" + str(k)]).copia()
 
-            dicionario_de_resultados["aresta_fb" + str(k)] = self.executar_heuristica(grafo_fb, AlgoritmoHeuristicaDeForcaBruta())
-            dicionario_de_resultados["novo_grafo_fb" + str(k)] = grafo_fb.adicionar_aresta(dicionario_de_resultados["aresta_fb" + str(k)]).copia()
+            #dicionario_de_resultados["aresta_fb" + str(k)] = self.executar_heuristica(grafo_fb, AlgoritmoHeuristicaDeForcaBruta())
+            #dicionario_de_resultados["novo_grafo_fb" + str(k)] = grafo_fb.adicionar_aresta(dicionario_de_resultados["aresta_fb" + str(k)]).copia()
 
         dicionario_de_resultados["arestas_fb*"] = self.executar_heuristica(grafo.copia(),
                                                                            AlgoritmoHeuristicaDeForcaBrutaParaMaisDeUmaAresta())
@@ -151,3 +160,4 @@ class ExperimentoF(Experimento):
             arestas_fb = dicionario_de_resultados["arestas_fb*"]
             DesenhistaDeGrafos().plotar_grafo_em_diretorio_de_acordo_com_vetor_fiedler_ressaltando_arestas(
                 grafo_fb, diretorio + '\\' + grafo_fb.obter_nome(), arestas_fb)
+

@@ -41,9 +41,11 @@ class DesenhistaDeGrafos:
 
         grafo_base = grafo.copia()
         if arestas_sugeridas == None: arestas_sugeridas = []
-        for aresta in arestas_sugeridas:
-            if grafo_base.tem_aresta(aresta):
-                grafo_base.remover_aresta(aresta)
+        for lista in arestas_sugeridas:
+            for aresta in lista:
+                if grafo_base.tem_aresta(aresta):
+                    grafo_base.remover_aresta(aresta)
+
         vertices_a, vertices_b = grafo_base.obter_particionamento_isoperimetrico()
 
         #rotula os vertices conforme os componentes caracteristicos
@@ -94,8 +96,8 @@ class DesenhistaDeGrafos:
 
         nx.draw_networkx_edges(grafo_nx, pos, width=1.0, alpha=0.5, edgelist=arestas_base)
         indice_da_cor = 0
-        for aresta in arestas_a_ressaltar:
-            nx.draw_networkx_edges(grafo_nx, pos, width=2.0, alpha=0.5, edgelist=[aresta], edge_color=cores_das_arestas[indice_da_cor])
+        for lista_de_arestas in arestas_a_ressaltar:
+            nx.draw_networkx_edges(grafo_nx, pos, width=2.0, alpha=0.5, edgelist=lista_de_arestas, edge_color=cores_das_arestas[indice_da_cor])
             indice_da_cor += 1
         if labels == None:
             labels = {}
@@ -143,9 +145,17 @@ class DesenhistaDeGrafos:
         fig = plt.figure()
         ax = fig.add_subplot(111)
         fig.subplots_adjust(top=0.90)
-        ax.set_title('Melhor conjunto de k=2 arestas')
+        ax.set_title('Melhor aresta')
 
-        verticesPositivos, verticesNegativos = grafo.obter_particionamento_pelo_vetor_fiedler()
+
+        grafo_base = grafo.copia()
+        arestas_sugeridas = arestas_de_maior_conectividade
+        for aresta in arestas_sugeridas:
+            if grafo_base.tem_aresta(aresta):
+                grafo_base.remover_aresta(aresta)
+
+        verticesPositivos, verticesNegativos = grafo_base.obter_particionamento_pelo_vetor_fiedler()
+
         grafonx = grafo.grafo_nx
         if grafonx.order() <= 40:
             tamanhoDoNo = 750
@@ -158,7 +168,7 @@ class DesenhistaDeGrafos:
             tamanhoDaFonte = 8
 
 
-        pos = nx.circular_layout(grafonx)
+        pos = nx.shell_layout(grafonx)
         nx.draw_networkx_nodes(grafonx, pos, verticesPositivos,
                                node_color='r',
                                node_size=tamanhoDoNo,

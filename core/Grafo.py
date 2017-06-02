@@ -90,6 +90,11 @@ class Grafo:
     def grau_de_vertice(self, vertice):
         return self.grafo_nx.degree(vertice)
 
+    def obter_grau_maximo(self):
+        graus = sorted(nx.degree(self.grafo_nx).values(), reverse=True)
+        dmax = max(graus)
+        return dmax
+
     def copia(self):
         return Grafo(self.grafo_nx.copy(), self.nome)
 

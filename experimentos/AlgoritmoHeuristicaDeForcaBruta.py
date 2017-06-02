@@ -96,3 +96,18 @@ class AlgoritmoHeuristicaDeForcaBrutaAlterado(AlgoritmoDeHeuristicaDeConectivida
     def obter_nome_do_algoritmo(self):
         return "Heuristica de Forca Bruta Alterado"
 
+class AlgoritmoHeuristicaDeForcaBrutaStarlike():
+
+    def _executar(self, grafo):
+        arestas_complementares = grafo.obter_grafo_complemento().obter_lista_de_arestas()
+        maior_conectividade = -1
+        melhor_aresta = (-1, -1)
+        for aresta in arestas_complementares:
+            nova_conectividade = grafo.copia().adicionar_aresta(aresta).obter_conectividade_algebrica()
+            if nova_conectividade > maior_conectividade:
+                maior_conectividade = nova_conectividade
+                melhor_aresta = aresta
+        return melhor_aresta
+
+    def obter_nome_do_algoritmo(self):
+        return "Heuristica de Forca Bruta (Starlike)"

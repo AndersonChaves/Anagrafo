@@ -64,7 +64,6 @@ def _calcular_valor_cheeger(grafo, particao_a, particao_b):
 
 
 def calcular_parametros_isoperimetricos(grafo):
-    print "Calculando numero isoperimetrico", grafo.obter_nome()
     lista = grafo.grafo_nx.nodes()
     menor_valor_cheeger = 999999
     particao_a_resultante = lista
@@ -80,7 +79,6 @@ def calcular_parametros_isoperimetricos(grafo):
                 particao_a_resultante = particao_a
                 particao_b_resultante = particao_b
 
-    print menor_valor_cheeger, particao_a_resultante
     return ([particao_a_resultante, particao_b_resultante], menor_valor_cheeger)
 
 def calcular_particionamento_isoperimetrico(grafo):
