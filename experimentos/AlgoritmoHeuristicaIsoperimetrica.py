@@ -12,7 +12,7 @@ class AlgoritmoHeuristicaIsoperimetrica(AlgoritmoDeHeuristicaDeConectividadeAlge
         lista_de_melhores_arestas = [melhor_aresta]
 
         for aresta in arestas_complementares:
-            cheeger = CalculoDeVetores.calcular_numero_isoperimetrico(grafo.copia().adicionar_aresta(aresta))
+            cheeger = CalculoDeVetores.calcular_numero_isoperimetrico(grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(aresta))
             cheeger = round(cheeger, 10)
             if cheeger > maior_cheeger:
                 maior_cheeger = cheeger

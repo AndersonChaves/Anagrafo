@@ -1,7 +1,7 @@
 from Grafo import Grafo
 from DescritorDeArestasDeArvoreT import DescritorDeArestasDeArvoreT
 
-class ArvoreT(Grafo):
+class DoubleBroom(Grafo):
     def __init__(self, grafo_nx, d, n, k, l, nome=""):
         Grafo.__init__(self, grafo_nx, nome)
         self.diametro = d

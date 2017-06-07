@@ -6,7 +6,7 @@ class AlgoritmoHeuristicaDeMenorDiametro(AlgoritmoDeHeuristicaDeConectividadeAlg
         menor_diametro = 9999
         melhor_aresta = (-1, -1)
         for aresta in arestas_complementares:
-            diametro = grafo.copia().adicionar_aresta(aresta).obter_diametro()
+            diametro = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(aresta).obter_diametro()
             if diametro < menor_diametro:
                 menor_diametro = diametro
                 melhor_aresta = aresta

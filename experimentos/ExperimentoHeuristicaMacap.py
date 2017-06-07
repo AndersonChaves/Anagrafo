@@ -47,16 +47,16 @@ class ExperimentoHeuristicaMacap:
 
     def gerar_grafos(self):
         if self.fixar_k:
-            listas_de_grafos_por_ordem = GeradorDeGrafos().gerar_listas_de_arvores_t_por_diametro_variando_ordem_com_k_fixado(
+            listas_de_grafos_por_ordem = GeradorDeGrafos().gerar_listas_de_double_brooms_por_diametro_variando_ordem_com_k_fixado(
                                                                                                                  self.ordem_minima,
                                                                                                                  self.ordem_maxima,
                                                                                                                  self.diametro,
                                                                                                                  k=1)
             return listas_de_grafos_por_ordem
         else:
-            listas_de_grafos_por_ordem = GeradorDeGrafos().gerar_listas_de_arvores_t_por_diametro_variando_ordem(self.ordem_minima,
-                                                                                                                 self.ordem_maxima,
-                                                                                                                 self.diametro)
+            listas_de_grafos_por_ordem = GeradorDeGrafos().gerar_listas_de_double_brooms_por_diametro_variando_ordem(self.ordem_minima,
+                                                                                                                     self.ordem_maxima,
+                                                                                                                     self.diametro)
             lista_de_grafos = []
             for lista in listas_de_grafos_por_ordem:
                 lista_de_grafos = lista_de_grafos + lista
@@ -76,13 +76,13 @@ class ExperimentoHeuristicaMacap:
     def _gerar_dicionario_de_resultados_para_grafo(self, grafo):
         dicionario_de_resultados = {"grafo": grafo}
         dicionario_de_resultados["aresta_hp"] = self._calcular_aresta_heuristica(grafo, AlgoritmoHeuristicaDePerturbacao())
-        dicionario_de_resultados["novo_grafo_hp"] = grafo.copia().adicionar_aresta(dicionario_de_resultados["aresta_hp"])
+        dicionario_de_resultados["novo_grafo_hp"] = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(dicionario_de_resultados["aresta_hp"])
 
         dicionario_de_resultados["aresta_he"] = self._calcular_aresta_heuristica(grafo, AlgoritmoHeuristicaDeExcentricidadeEGrau())
-        dicionario_de_resultados["novo_grafo_he"] = grafo.copia().adicionar_aresta(dicionario_de_resultados["aresta_he"])
+        dicionario_de_resultados["novo_grafo_he"] = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(dicionario_de_resultados["aresta_he"])
 
         dicionario_de_resultados["aresta_fb"] = self._calcular_aresta_heuristica(grafo, AlgoritmoHeuristicaDeForcaBruta())
-        dicionario_de_resultados["novo_grafo_fb"] = grafo.copia().adicionar_aresta(dicionario_de_resultados["aresta_fb"])
+        dicionario_de_resultados["novo_grafo_fb"] = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(dicionario_de_resultados["aresta_fb"])
         return dicionario_de_resultados
 
     def _calcular_aresta_heuristica(self, grafo_original, algoritmo_de_heuristica):
@@ -93,9 +93,9 @@ class ExperimentoHeuristicaMacap:
 
     def _adicionar_linha_de_resultados(self, grafo, dicionario_de_resultados):
 
-        conectividade_hp = round(grafo.copia().adicionar_aresta(dicionario_de_resultados["aresta_hp"]).obter_conectividade_algebrica(), 7)
-        conectividade_he = round(grafo.copia().adicionar_aresta(dicionario_de_resultados["aresta_he"]).obter_conectividade_algebrica(), 7)
-        conectividade_fb = round(grafo.copia().adicionar_aresta(dicionario_de_resultados["aresta_fb"]).obter_conectividade_algebrica(), 7)
+        conectividade_hp = round(grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(dicionario_de_resultados["aresta_hp"]).obter_conectividade_algebrica(), 7)
+        conectividade_he = round(grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(dicionario_de_resultados["aresta_he"]).obter_conectividade_algebrica(), 7)
+        conectividade_fb = round(grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(dicionario_de_resultados["aresta_fb"]).obter_conectividade_algebrica(), 7)
         linha = [grafo.obter_diametro(),
                  grafo.obter_ordem(),
                  grafo.obter_k(),

@@ -2,16 +2,55 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import os
 
+
 class DesenhistaDeGrafos:
     tamanhos_de_fonte = [15, 12, 8]
 
-    def obter_grafo_plotado_de_acordo_com_vetor_fiedler(self, grafo, arestas_sugeridas = None):
-        grafo_base = grafo.copia()
-        if arestas_sugeridas == None: arestas_sugeridas = []
-        for aresta in arestas_sugeridas:
-            grafo_base.remover_aresta(aresta)
-        verticesPositivos, verticesNegativos = grafo_base.obter_particionamento_pelo_vetor_fiedler()
-        return self.obter_grafo_plotado(grafo, [verticesPositivos, verticesNegativos], arestas_sugeridas)
+    def obter_grafo_plotado_de_acordo_com_vetor_fiedler(self, grafo, arestas_sugeridas=()):
+        vertices_positivos, vertices_negativos = grafo.obter_particionamento_pelo_vetor_fiedler()
+        return self.obter_grafo_plotado(grafo, [vertices_positivos, vertices_negativos], arestas_sugeridas)
+
+    def obter_grafo_plotado(self, grafo, listas_de_vertices, arestas_a_ressaltar,
+                            cores_das_arestas = ('r', 'b'), cores_dos_vertices = ('r', 'b'), labels = None):
+        grafo_nx = grafo.grafo_nx
+        figura = plt.figure()
+        figura.suptitle(grafo.obter_nome(), fontsize=14, fontweight='bold')
+        ax = figura.add_subplot(111)
+        figura.subplots_adjust(top=0.90)
+        ax.set_title('Melhor aresta (vermelho) e aresta isoperimetrica (azul)')
+
+        plt.axis('off')
+        tamanho_do_no = self.obter_tamanho_do_no(grafo)
+        tamanho_da_fonte = self.obter_tamanho_da_fonte(grafo)
+
+        pos = nx.circular_layout(grafo_nx, scale=0.5)
+
+        nx.draw_networkx_nodes(grafo_nx, pos, listas_de_vertices[0],
+                               node_color=cores_dos_vertices[0],
+                               node_size=tamanho_do_no,
+                               alpha=0.8)
+        nx.draw_networkx_nodes(grafo_nx, pos, listas_de_vertices[1],
+                               node_color=cores_dos_vertices[1],
+                               node_size=tamanho_do_no,
+                               alpha=0.8)
+
+        arestas_do_grafo = grafo.obter_lista_de_arestas()
+        arestas_base = []
+        for aresta in arestas_do_grafo:
+            if aresta not in arestas_a_ressaltar:
+                arestas_base.append(aresta)
+
+        nx.draw_networkx_edges(grafo_nx, pos, width=1.0, alpha=0.5, edgelist=arestas_base)
+        indice_da_cor = 0
+        for lista_de_arestas in arestas_a_ressaltar:
+            nx.draw_networkx_edges(grafo_nx, pos, width=2.0, alpha=0.5, edgelist=lista_de_arestas, edge_color=cores_das_arestas[indice_da_cor])
+            indice_da_cor += 1
+        if labels == None:
+            labels = {}
+            for node in grafo_nx.nodes():
+                labels[node] = str(int(node) + 1)
+        nx.draw_networkx_labels(grafo_nx, pos, labels, font_size=tamanho_da_fonte, ax=None)
+        return figura
 
     def plotar_grafo_em_diretorio_de_acordo_com_numero_isoperimetrico(self, grafo, diretorio, *parametros):
         arestas_sugeridas = []
@@ -63,48 +102,6 @@ class DesenhistaDeGrafos:
         caminho_do_arquivo = diretorio + '\\' + nome_do_arquivo
         plt.savefig(caminho_do_arquivo)
         plt.clf()
-
-    def obter_grafo_plotado(self, grafo, listas_de_vertices, arestas_a_ressaltar,
-                            cores_das_arestas = ('r', 'b'), cores_dos_vertices = ('r', 'b'), labels = None):
-        grafo_nx = grafo.grafo_nx
-        figura = plt.figure()
-        figura.suptitle(grafo.obter_nome(), fontsize=14, fontweight='bold')
-        ax = figura.add_subplot(111)
-        figura.subplots_adjust(top=0.90)
-        ax.set_title('Melhor aresta (vermelho) e aresta isoperimetrica (azul)')
-
-        plt.axis('off')
-        tamanho_do_no = self.obter_tamanho_do_no(grafo)
-        tamanho_da_fonte = self.obter_tamanho_da_fonte(grafo)
-
-        pos = nx.circular_layout(grafo_nx, scale=0.5)
-
-        nx.draw_networkx_nodes(grafo_nx, pos, listas_de_vertices[0],
-                               node_color=cores_dos_vertices[0],
-                               node_size=tamanho_do_no,
-                               alpha=0.8)
-        nx.draw_networkx_nodes(grafo_nx, pos, listas_de_vertices[1],
-                               node_color=cores_dos_vertices[1],
-                               node_size=tamanho_do_no,
-                               alpha=0.8)
-
-        arestas_do_grafo = grafo.obter_lista_de_arestas()
-        arestas_base = []
-        for aresta in arestas_do_grafo:
-            if aresta not in arestas_a_ressaltar:
-                arestas_base.append(aresta)
-
-        nx.draw_networkx_edges(grafo_nx, pos, width=1.0, alpha=0.5, edgelist=arestas_base)
-        indice_da_cor = 0
-        for lista_de_arestas in arestas_a_ressaltar:
-            nx.draw_networkx_edges(grafo_nx, pos, width=2.0, alpha=0.5, edgelist=lista_de_arestas, edge_color=cores_das_arestas[indice_da_cor])
-            indice_da_cor += 1
-        if labels == None:
-            labels = {}
-            for node in grafo_nx.nodes():
-                labels[node] = str(int(node) + 1)
-        nx.draw_networkx_labels(grafo_nx, pos, labels, font_size=tamanho_da_fonte, ax=None)
-        return figura
 
     def obter_tamanho_do_no(self, grafo):
         grafo_nx = grafo.grafo_nx

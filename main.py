@@ -12,4 +12,4 @@ sys.exit(app.exec_())
 #import core.utils.CalculoDeVetores
 #from GeradorDeGrafos import GeradorDeGrafos
 
-#core.utils.CalculoDeVetores.calcular_menor_gargalo(GeradorDeGrafos().gerar_arvore_t(2, 2, 3))
+#core.utils.CalculoDeVetores.calcular_menor_gargalo(GeradorDeGrafos().gerar_double_broom(2, 2, 3))

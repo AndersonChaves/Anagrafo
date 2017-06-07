@@ -40,7 +40,7 @@ class ExperimentoG(Experimento):
         ordem_maxima = 15
         listas_de_grafos_por_diametro = []
         for diametro in range(4, 16): #41
-            listas_de_grafos_por_ordem = GeradorDeGrafos().gerar_listas_de_arvores_t_por_diametro_variando_ordem_com_k_fixado(
+            listas_de_grafos_por_ordem = GeradorDeGrafos().gerar_listas_de_double_brooms_por_diametro_variando_ordem_com_k_fixado(
                 ordem_maxima = ordem_maxima, diametro = diametro, k = 1)
             listas_de_grafos_por_diametro.append(listas_de_grafos_por_ordem)
 
@@ -54,14 +54,14 @@ class ExperimentoG(Experimento):
         grafo_fb = grafo.copia()
         grafo_is = grafo.copia()
         dicionario_de_resultados["aresta_fb"] = self.executar_heuristica(grafo_fb, AlgoritmoHeuristicaDeForcaBruta())
-        dicionario_de_resultados["novo_grafo_fb"] = grafo_fb.adicionar_aresta(dicionario_de_resultados["aresta_fb"]).copia()
+        dicionario_de_resultados["novo_grafo_fb"] = grafo_fb.obter_grafo_equivalente_com_aresta_adicionada(dicionario_de_resultados["aresta_fb"]).copia()
 
         alg = AlgoritmoHeuristicaIsoperimetrica()
         alg.executar_algoritmo(grafo.copia())
 
         dicionario_de_resultados["arestas_is"] = alg.obter_lista_de_melhores_arestas()
         #dicionario_de_resultados[""]
-        dicionario_de_resultados["novo_grafo_is"] = grafo_is.adicionar_arestas(dicionario_de_resultados["arestas_is"]).copia()
+        dicionario_de_resultados["novo_grafo_is"] = grafo_is.obter_grafo_equivalente_com_arestas_adicionadas(dicionario_de_resultados["arestas_is"]).copia()
 
         return dicionario_de_resultados
 

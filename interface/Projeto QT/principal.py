@@ -27,7 +27,7 @@ class FrmTelaPrincipal(QtGui.QMainWindow):
         #l = int(self.edt_folhas_l.get().strip())
         #d = int(self.edt_diametro.get().strip())
         #if self.int_gerar_complemento.get() == 0:
-        #    grafo = GeradorDeGrafos().gerar_arvore_t(k, l, d)
+        #    grafo = GeradorDeGrafos().gerar_double_broom(k, l, d)
 
     def teste(self):
         path = "2.jpg"

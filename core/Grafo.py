@@ -1,5 +1,6 @@
 import networkx as nx
 from ParticionadorEspectral import ParticionadorEspectral
+from Caminho import Caminho
 from utils import CalculoDeVetores
 
 class Grafo:
@@ -60,15 +61,15 @@ class Grafo:
     def tem_aresta(self, aresta):
         return self.grafo_nx.has_edge(*aresta)
 
-    def adicionar_aresta(self, aresta):
-        self.grafo_nx.add_edge(*aresta)
-        self.zerar_parametros_calculados()
-        return self
+    def obter_grafo_equivalente_com_aresta_adicionada(self, aresta):
+        novo_nome = self.nome + "+" + str(aresta)
+        return Grafo(self.grafo_nx.copy().add_edge(*aresta), novo_nome)
 
-    def adicionar_arestas(self, lista_de_arestas):
+    def obter_grafo_equivalente_com_arestas_adicionadas(self, lista_de_arestas):
+        novo_grafo = self
         for aresta in lista_de_arestas:
-            self.adicionar_aresta(aresta)
-        return self
+            novo_grafo = novo_grafo.obter_grafo_equivalente_com_aresta_adicionada(aresta)
+        return novo_grafo
 
     def remover_aresta(self, aresta):
         self.grafo_nx.remove_edge(*aresta)
@@ -119,10 +120,3 @@ class Grafo:
             lista_de_caminhos.append(Caminho(dicionario_de_caminhos[element]))
         return lista_de_caminhos
 
-
-class Caminho:
-    def __init__(self, lista_de_vertices):
-        self.lista_de_vertices = lista_de_vertices
-        self.tamanho = len(lista_de_vertices) - 1
-        self.vertice_origem = lista_de_vertices[0]
-        self.vertice_destino = lista_de_vertices[-1]

@@ -8,7 +8,7 @@ class AlgoritmoHeuristicaDeForcaBruta(AlgoritmoDeHeuristicaDeConectividadeAlgebr
         maior_conectividade = -1
         melhor_aresta = (-1, -1)
         for aresta in arestas_complementares:
-            nova_conectividade = grafo.copia().adicionar_aresta(aresta).obter_conectividade_algebrica()
+            nova_conectividade = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(aresta).obter_conectividade_algebrica()
             if nova_conectividade > maior_conectividade:
                 maior_conectividade = nova_conectividade
                 melhor_aresta = aresta
@@ -23,7 +23,7 @@ class AlgoritmoHeuristicaDeForcaBrutaParaMaisDeUmaAresta(AlgoritmoDeHeuristicaDe
         maior_conectividade = -1
         melhor_conjunto_de_arestas = []
         for combinacao_de_arestas in combinations(arestas_complementares, 2):
-            nova_conectividade = grafo.copia().adicionar_arestas(combinacao_de_arestas).obter_conectividade_algebrica()
+            nova_conectividade = grafo.copia().obter_grafo_equivalente_com_arestas_adicionadas(combinacao_de_arestas).obter_conectividade_algebrica()
             if nova_conectividade > maior_conectividade:
                 maior_conectividade = nova_conectividade
                 melhor_conjunto_de_arestas = combinacao_de_arestas
@@ -36,8 +36,8 @@ class AlgoritmoHeuristicaDeForcaBrutaParaMaisDeUmaAresta(AlgoritmoDeHeuristicaDe
 class AlgoritmoHeuristicaDeForcaBrutaAlterado(AlgoritmoDeHeuristicaDeConectividadeAlgebrica):
     def _executar(self, grafo):
         arestas_complementares = DescritorDeArestasDeArvoreT(grafo).obter_arestas_de_todos_os_tipos()
-        maior_conectividade = grafo.copia().adicionar_aresta(arestas_complementares[0]).obter_conectividade_algebrica()
-        segunda_maior_conectividade = grafo.copia().adicionar_aresta(arestas_complementares[1]).obter_conectividade_algebrica()
+        maior_conectividade = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(arestas_complementares[0]).obter_conectividade_algebrica()
+        segunda_maior_conectividade = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(arestas_complementares[1]).obter_conectividade_algebrica()
 
         melhor_aresta = arestas_complementares.pop(0)
         segunda_melhor_aresta = arestas_complementares.pop(0)
@@ -47,7 +47,7 @@ class AlgoritmoHeuristicaDeForcaBrutaAlterado(AlgoritmoDeHeuristicaDeConectivida
             melhor_aresta, segunda_maior_conectividade = segunda_melhor_aresta, melhor_aresta
 
         for aresta in arestas_complementares:
-            nova_conectividade = grafo.copia().adicionar_aresta(aresta).obter_conectividade_algebrica()
+            nova_conectividade = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(aresta).obter_conectividade_algebrica()
             if nova_conectividade > maior_conectividade:
                 maior_conectividade, segunda_maior_conectividade = nova_conectividade, maior_conectividade
                 melhor_aresta, segunda_melhor_aresta = aresta, melhor_aresta
@@ -71,13 +71,13 @@ class AlgoritmoHeuristicaDeForcaBrutaAlterado(AlgoritmoDeHeuristicaDeConectivida
         tolerancia = 0.00009
         arestas_complementares = DescritorDeArestasDeArvoreT(grafo).obter_arestas_de_todos_os_tipos()
 
-        maior_conectividade = grafo.copia().adicionar_aresta(arestas_complementares[0]).obter_conectividade_algebrica()
+        maior_conectividade = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(arestas_complementares[0]).obter_conectividade_algebrica()
         melhor_aresta = arestas_complementares.pop(0)
 
         lista_de_melhores_arestas = [melhor_aresta]
         lista_de_melhores_conectividades = [maior_conectividade]
         for aresta in arestas_complementares:
-            nova_conectividade = grafo.copia().adicionar_aresta(aresta).obter_conectividade_algebrica()
+            nova_conectividade = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(aresta).obter_conectividade_algebrica()
             if nova_conectividade > maior_conectividade:
                 maior_conectividade = nova_conectividade
                 melhor_aresta = aresta
@@ -103,7 +103,7 @@ class AlgoritmoHeuristicaDeForcaBrutaStarlike():
         maior_conectividade = -1
         melhor_aresta = (-1, -1)
         for aresta in arestas_complementares:
-            nova_conectividade = grafo.copia().adicionar_aresta(aresta).obter_conectividade_algebrica()
+            nova_conectividade = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(aresta).obter_conectividade_algebrica()
             if nova_conectividade > maior_conectividade:
                 maior_conectividade = nova_conectividade
                 melhor_aresta = aresta

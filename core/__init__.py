@@ -1,4 +1,4 @@
 # __init__.py
 
-from ArvoreT import ArvoreT
+from DoubleBroom import DoubleBroom
 from DescritorDeArestasDeArvoreT import DescritorDeArestasDeArvoreT

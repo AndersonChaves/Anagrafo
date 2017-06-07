@@ -2,40 +2,40 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/experimentos/ExperimentoF.py" line="138" />
-    <bookmark url="file://$PROJECT_DIR$/core/DesenhistaDeGrafos.py" line="145" />
+    <bookmark url="file://$PROJECT_DIR$/core/DesenhistaDeGrafos.py" line="142" />
     <bookmark url="file://$PROJECT_DIR$/core/GeradorDeGrafos.py" line="19" mnemonic="2" />
     <bookmark url="file://$PROJECT_DIR$/core/GeradorDeGrafos.py" line="104" mnemonic="1" />
-    <bookmark url="file://$PROJECT_DIR$/core/Grafo.py" line="28" mnemonic="5" />
+    <bookmark url="file://$PROJECT_DIR$/core/Grafo.py" line="29" mnemonic="5" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fd28db8-b8c3-44e3-8cb4-a5a2d5df9262" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/DescritorDeArestasDeStarlike.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/Starlike.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentos/ExperimentoH.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentos/ExperimentoH2.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/experimentos/ExperimentoTeste.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interface/Interface02.pro" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interface/Interface02.pro.user" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interface/Ui_MainWindowOLD.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interface/frmgerarexperimento.ui" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interface/main.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interface/mainwindow - Copia.ui" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interface/mainwindow.cpp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interface/mainwindow.h" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/interface/mainwindow.ui" afterPath="" />
+    <list default="true" id="3fd28db8-b8c3-44e3-8cb4-a5a2d5df9262" name="Default" comment="Alteração para Experimento G (consideração do número isoperimétrico)">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Anderson.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/AnalisadorDeGrafosStarlike.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/Caminho.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/DescritorDeArestaStarlike.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/ArvoreT.py" afterPath="$PROJECT_DIR$/core/DoubleBroom.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/DescritorDeGrafos.py" afterPath="$PROJECT_DIR$/core/DescritorDeGrafos.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/DesenhistaDeGrafos.py" afterPath="$PROJECT_DIR$/core/DesenhistaDeGrafos.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/GeradorDeGrafos.py" afterPath="$PROJECT_DIR$/core/GeradorDeGrafos.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Grafo.py" afterPath="$PROJECT_DIR$/core/Grafo.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/utils/CalculoDeVetores.py" afterPath="$PROJECT_DIR$/core/utils/CalculoDeVetores.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Starlike.py" afterPath="$PROJECT_DIR$/core/Starlike.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/__init__.py" afterPath="$PROJECT_DIR$/core/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/AlgoritmoHeuristicaDeForcaBruta.py" afterPath="$PROJECT_DIR$/experimentos/AlgoritmoHeuristicaDeForcaBruta.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/AlgoritmoHeuristicaDeMenorDiametro.py" afterPath="$PROJECT_DIR$/experimentos/AlgoritmoHeuristicaDeMenorDiametro.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/AlgoritmoHeuristicaIsoperimetrica.py" afterPath="$PROJECT_DIR$/experimentos/AlgoritmoHeuristicaIsoperimetrica.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/Experimento.py" afterPath="$PROJECT_DIR$/experimentos/Experimento.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/ExperimentoB.py" afterPath="$PROJECT_DIR$/experimentos/ExperimentoB.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/ExperimentoC.py" afterPath="$PROJECT_DIR$/experimentos/ExperimentoC.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/ExperimentoE.py" afterPath="$PROJECT_DIR$/experimentos/ExperimentoE.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/ExperimentoF.py" afterPath="$PROJECT_DIR$/experimentos/ExperimentoF.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/ExperimentoG.py" afterPath="$PROJECT_DIR$/experimentos/ExperimentoG.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/ExperimentoH.py" afterPath="$PROJECT_DIR$/experimentos/ExperimentoH.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/ExperimentoH2.py" afterPath="$PROJECT_DIR$/experimentos/ExperimentoH2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/ExperimentoHeuristicaMacap.py" afterPath="$PROJECT_DIR$/experimentos/ExperimentoHeuristicaMacap.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/ExperimentoTeste.py" afterPath="$PROJECT_DIR$/experimentos/ExperimentoTeste.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/experimentos/TelaPrincipal.py" afterPath="$PROJECT_DIR$/experimentos/TelaPrincipal.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interface/FrmTelaPrincipal.py" afterPath="$PROJECT_DIR$/interface/FrmTelaPrincipal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interface/Projeto QT/principal.py" afterPath="$PROJECT_DIR$/interface/Projeto QT/principal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,25 +50,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ExperimentoH.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experimentos/ExperimentoH.py">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1768">
-              <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="14" column="55" lean-forward="false" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
               <folding>
-                <element signature="e#25#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Grafo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/Grafo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
+                <element signature="e#25#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -77,8 +65,8 @@
       <file leaf-file-name="FrmTelaPrincipal.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/interface/FrmTelaPrincipal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="56" column="8" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#15#29#0" expanded="true" />
               </folding>
@@ -86,69 +74,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/interface/__init__.py">
+      <file leaf-file-name="DoubleBroom.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/DoubleBroom.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding>
-                <element signature="e#15#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AlgoritmoHeuristicaDeForcaBruta.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experimentos/AlgoritmoHeuristicaDeForcaBruta.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#103#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExperimentoH2.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/experimentos/ExperimentoH2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="14" column="102" lean-forward="true" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="102" />
-              <folding>
-                <element signature="e#25#60#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExperimentoG.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/experimentos/ExperimentoG.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="65" />
+              <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GeradorDeGrafos.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/GeradorDeGrafos.py">
+      <file leaf-file-name="Grafo.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/Grafo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2448">
-              <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+            <state relative-caret-position="502">
+              <caret line="84" column="30" lean-forward="false" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="30" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#0#21#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -157,8 +99,50 @@
       <file leaf-file-name="Starlike.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/Starlike.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            <state relative-caret-position="187">
+              <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GeradorDeGrafos.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/GeradorDeGrafos.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="150" column="4" lean-forward="false" selection-start-line="150" selection-start-column="4" selection-end-line="150" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnalisadorDeGrafosStarlike.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/AnalisadorDeGrafosStarlike.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="47" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DescritorDeArestaStarlike.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/DescritorDeArestaStarlike.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Caminho.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/Caminho.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -175,41 +159,42 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>time</find>
-      <find>plotar_grafos</find>
-      <find>dicionario_de_resultados[&quot;aresta_he&quot; + str(k)]</find>
-      <find>dicionario_de_resultados[&quot;aresta_hp&quot; + str(k)]</find>
-      <find>Aresta Efb1</find>
-      <find>arvore_t</find>
-      <find>(k)</find>
-      <find>arestas</find>
-      <find>obter_k</find>
-      <find>grau_ma</find>
-      <find>grau</find>
-      <find>*</find>
-      <find>Grau Máx</find>
-      <find>obter_cone</find>
-      <find>arvore</find>
-      <find>obter_dia</find>
-      <find>fb2</find>
-      <find>path</find>
-      <find>exist</find>
-      <find>exi</find>
-      <find>ex</find>
-      <find>circula</find>
-      <find>plotar_grafo_em_diretorio_de_acordo_com_vetor_fiedler_ressaltando_arestas</find>
-      <find>gerar_star</find>
-      <find>print</find>
-      <find>visualiza</find>
-      <find>gerar_visualizacao_do_grafo_de_acordo_com_numero_isoperimetrico</find>
       <find>i</find>
       <find>isoper</find>
       <find>4,</find>
+      <find>pa</find>
+      <find>laplac</find>
+      <find>nodes</find>
+      <find>Caminho</find>
+      <find>adici</find>
+      <find>doble</find>
+      <find>adicion</find>
+      <find>equiva</find>
+      <find>copia</find>
+      <find>aresta</find>
+      <find>adiciona</find>
+      <find>lapla</find>
+      <find>obter_dia</find>
+      <find>possive</find>
+      <find>diametro</find>
+      <find>caminho</find>
+      <find>ramos</find>
+      <find>analisados</find>
+      <find>edges</find>
+      <find>comple</find>
+      <find>return self.grafo</find>
+      <find>lista_de_are</find>
+      <find>informa</find>
+      <find>arestas</find>
+      <find>quantidad</find>
+      <find>quantid</find>
+      <find>arestas_de_cada</find>
     </findStrings>
     <replaceStrings>
       <replace>dicionario_de_resultados[&quot;aresta_hp&quot;]</replace>
       <replace>Aresta Efb</replace>
       <replace>starlike</replace>
+      <replace>ramo</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -233,22 +218,27 @@
         <option value="$PROJECT_DIR$/experimentos/ExperimentoTeste.py" />
         <option value="$PROJECT_DIR$/experimentos/AlgoritmoHeuristicaDeForcaBruta.py" />
         <option value="$PROJECT_DIR$/core/DescritorDeArestasDeStarlike.py" />
-        <option value="$PROJECT_DIR$/core/Grafo.py" />
         <option value="$PROJECT_DIR$/experimentos/AlgoritmoHeuristicaDeExcentricidadeEGrau.py" />
-        <option value="$PROJECT_DIR$/core/DesenhistaDeGrafos.py" />
-        <option value="$PROJECT_DIR$/core/Starlike.py" />
         <option value="$PROJECT_DIR$/experimentos/ExperimentoH.py" />
-        <option value="$PROJECT_DIR$/core/GeradorDeGrafos.py" />
         <option value="$PROJECT_DIR$/experimentos/ExperimentoH2.py" />
-        <option value="$PROJECT_DIR$/interface/FrmTelaPrincipal.py" />
         <option value="$PROJECT_DIR$/experimentos/ExperimentoG.py" />
+        <option value="$PROJECT_DIR$/core/DesenhistaDeGrafos.py" />
+        <option value="$PROJECT_DIR$/interface/FrmTelaPrincipal.py" />
+        <option value="$PROJECT_DIR$/core/Caminho.py" />
+        <option value="$PROJECT_DIR$/core/DoubleBroom.py" />
+        <option value="$PROJECT_DIR$/core/AnalisadorDeGrafos.py" />
+        <option value="$PROJECT_DIR$/core/Starlike.py" />
+        <option value="$PROJECT_DIR$/core/DescritorDeArestaStarlike.py" />
+        <option value="$PROJECT_DIR$/core/Grafo.py" />
+        <option value="$PROJECT_DIR$/core/GeradorDeGrafos.py" />
+        <option value="$PROJECT_DIR$/core/AnalisadorDeGrafosStarlike.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1370" />
+    <option name="width" value="1378" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -269,8 +259,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -307,7 +297,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="experimentos" />
+              <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -316,8 +306,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/IntelliJ.Portuguese.Brazil.Dictionary-master (1)/IntelliJ.Portuguese.Brazil.Dictionary-master" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.spelling" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -331,7 +321,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ExperimentoG">
+  <component name="RunManager" selected="Python.GeradorDeGrafos">
     <configuration default="false" name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -345,42 +335,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Experigrafo" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="GeradorDeGrafos" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Experigrafo" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/GeradorDeGrafos.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="ExperimentoH2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/experimentos" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Experigrafo" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/experimentos/ExperimentoH2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -417,6 +371,42 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Experigrafo" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/interface/FrmTelaPrincipal.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Starlike" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Experigrafo" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/Starlike.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="GeradorDeGrafos" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/core" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Experigrafo" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/core/GeradorDeGrafos.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -488,24 +478,25 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.main" />
-      <item index="1" class="java.lang.String" itemvalue="Python.GeradorDeGrafos" />
-      <item index="2" class="java.lang.String" itemvalue="Python.ExperimentoH2" />
-      <item index="3" class="java.lang.String" itemvalue="Python.ExperimentoG" />
-      <item index="4" class="java.lang.String" itemvalue="Python.FrmTelaPrincipal" />
+      <item index="1" class="java.lang.String" itemvalue="Python.ExperimentoG" />
+      <item index="2" class="java.lang.String" itemvalue="Python.FrmTelaPrincipal" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Starlike" />
+      <item index="4" class="java.lang.String" itemvalue="Python.GeradorDeGrafos" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.ExperimentoG" />
-        <item index="1" class="java.lang.String" itemvalue="Python.main" />
-        <item index="2" class="java.lang.String" itemvalue="Python.FrmTelaPrincipal" />
-        <item index="3" class="java.lang.String" itemvalue="Python.ExperimentoH2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.GeradorDeGrafos" />
+        <item index="0" class="java.lang.String" itemvalue="Python.GeradorDeGrafos" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Starlike" />
+        <item index="2" class="java.lang.String" itemvalue="Python.ExperimentoG" />
+        <item index="3" class="java.lang.String" itemvalue="Python.main" />
+        <item index="4" class="java.lang.String" itemvalue="Python.FrmTelaPrincipal" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="1" Folder0="$USER_HOME$/Downloads/IntelliJ.Portuguese.Brazil.Dictionary-master (1)/IntelliJ.Portuguese.Brazil.Dictionary-master" Dictionaries="0" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -524,7 +515,14 @@
       <option name="project" value="LOCAL" />
       <updated>1495860437432</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Alteração para Experimento G (consideração do número isoperimétrico)">
+      <created>1496365150263</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1496365150263</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView">
@@ -537,13 +535,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1370" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27991137" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27826726" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35962147" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.52342606" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.47657394" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35962147" sideWeight="0.8931186" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -557,9 +556,29 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.52342606" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35962147" sideWeight="0.8931186" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27826726" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.47657394" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39905363" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -577,82 +596,36 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>6</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>2</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>4</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/experimentos/ExperimentoG.py</url>
           <line>79</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/core/AnalisadorDeGrafosStarlike.py</url>
+          <line>98</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/core/AnalisadorDeGrafosStarlike.py</url>
+          <line>111</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/core/AnalisadorDeGrafosStarlike.py</url>
+          <line>119</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="16" />
+      <option name="time" value="29" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="dicionario_de_resultados[&quot;aresta_fb&quot;]" language="Python" />
+        <watch expression="self.informacoes_de_arestas[a][b][&quot;codigo&quot;] " language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/experimentos/ExperimentoG.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="39" column="25" lean-forward="false" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experimentos/AlgoritmoHeuristicaIsoperimetrica.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="31" column="38" lean-forward="false" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/GeradorDeGrafos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/DescritorDeGrafos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="41" column="18" lean-forward="false" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/interface/FrmTelaPrincipal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding>
-            <element signature="e#15#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/experimentos/ExperimentoF.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -667,9 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="901">
           <caret line="66" column="24" lean-forward="false" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
-          <folding>
-            <element signature="e#25#36#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -748,9 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="35" column="31" lean-forward="false" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
-          <folding>
-            <element signature="e#25#36#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -843,13 +810,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/ArvoreT.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/DescritorDeArestasDeStarlike.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -896,9 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-          <folding>
-            <element signature="e#25#36#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -917,54 +874,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/EscritorDeDados.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="34" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/DesenhistaDeGrafos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2856">
-          <caret line="170" column="30" lean-forward="false" selection-start-line="170" selection-start-column="30" selection-end-line="170" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/Starlike.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="14" lean-forward="false" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/GeradorDeGrafos.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2448">
-          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/experimentos/AlgoritmoHeuristicaDeForcaBruta.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -972,57 +885,137 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="e#15#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/interface/FrmTelaPrincipal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="56" column="8" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="8" />
-          <folding>
-            <element signature="e#15#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/experimentos/ExperimentoH.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1768">
-          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-          <folding>
-            <element signature="e#25#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/Grafo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experimentos/ExperimentoG.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="21" column="65" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="65" />
+          <caret line="21" column="65" lean-forward="false" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/experimentos/ExperimentoH2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="14" column="102" lean-forward="true" selection-start-line="14" selection-start-column="86" selection-end-line="14" selection-end-column="102" />
+        <state relative-caret-position="340">
+          <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/DesenhistaDeGrafos.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/EscritorDeDados.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/experimentos/ExperimentoH.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="113" column="0" lean-forward="false" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/ParticionadorEspectral.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="55" lean-forward="false" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
           <folding>
-            <element signature="e#25#60#0" expanded="true" />
+            <element signature="e#25#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/interface/FrmTelaPrincipal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#15#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Caminho.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/DoubleBroom.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Starlike.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/DescritorDeArestaStarlike.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Grafo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="84" column="30" lean-forward="false" selection-start-line="84" selection-start-column="8" selection-end-line="84" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/GeradorDeGrafos.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="150" column="4" lean-forward="false" selection-start-line="150" selection-start-column="4" selection-end-line="150" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/AnalisadorDeGrafosStarlike.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="47" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

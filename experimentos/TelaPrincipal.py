@@ -63,7 +63,7 @@ class TelaPrincipal:
 
 
     def inicalizar_container_esquerdo(self):
-        figura = self.gerar_figura_a_partir_de_grafo(GeradorDeGrafos().gerar_arvore_t(3, 4, 3))
+        figura = self.gerar_figura_a_partir_de_grafo(GeradorDeGrafos().gerar_double_broom(3, 4, 3))
         self.canvas = FigureCanvasTkAgg(figura, master=root)
         self.canvas.show()
         self.canvas.get_tk_widget().pack(side=Tk.LEFT, fill=Tk.BOTH, expand=1)
@@ -117,9 +117,9 @@ class TelaPrincipal:
         l = int(self.edt_folhas_l.get().strip())
         d = int(self.edt_diametro.get().strip())
         if self.int_gerar_complemento.get() == 0:
-          grafo = GeradorDeGrafos().gerar_arvore_t(k, l, d)
+          grafo = GeradorDeGrafos().gerar_double_broom(k, l, d)
         else:
-          grafo = GeradorDeGrafos().gerar_arvore_t(k, l, d).obter_grafo_complemento()
+          grafo = GeradorDeGrafos().gerar_double_broom(k, l, d).obter_grafo_complemento()
 
         self.canvas.figure.clf()
 
@@ -128,7 +128,7 @@ class TelaPrincipal:
         melhor_aresta_fb = gerador_de_heuristica.estimar_aresta_de_maior_aumento_da_conectividade_algebrica(grafo)
         self.lbl_valor_melhor_aresta.alterar_texto(str(  (melhor_aresta_fb[0]+1, melhor_aresta_fb[1]+1) ))
 
-        novo_grafo = grafo.copia().adicionar_aresta(melhor_aresta_fb)
+        novo_grafo = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(melhor_aresta_fb)
 
         self.lbl_valor_nova_conectividade_algebrica.alterar_texto(novo_grafo.obter_conectividade_algebrica())
         self.canvas.figure = self.gerar_figura_a_partir_de_grafo(novo_grafo, [melhor_aresta_fb])

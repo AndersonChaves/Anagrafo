@@ -69,7 +69,7 @@ class ExperimentoC(ExperimentoHeuristicaMacap):
         return dicionario_de_resultados
 
     def _adicionar_linha_de_resultados(self, grafo, dicionario_de_resultados):
-        conectividade_fb = grafo.copia().adicionar_aresta(dicionario_de_resultados["Arestas Forca Bruta"][0]).obter_conectividade_algebrica()
+        conectividade_fb = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(dicionario_de_resultados["Arestas Forca Bruta"][0]).obter_conectividade_algebrica()
         lista_de_melhores_arestas_formatadas = []
         for aresta in dicionario_de_resultados["Arestas Forca Bruta"]:
             lista_de_melhores_arestas_formatadas.append(self.formatar_aresta(aresta))
@@ -97,10 +97,10 @@ class ExperimentoC(ExperimentoHeuristicaMacap):
         self.persistir_dados()
 
 
-'''grafo = GeradorDeGrafos().gerar_arvore_t(1, 38, 38)
+'''grafo = GeradorDeGrafos().gerar_double_broom(1, 38, 38)
 print grafo.obter_conectividade_algebrica()
-print grafo.copia().adicionar_aresta((10, 70)).obter_conectividade_algebrica()
-print grafo.copia().adicionar_aresta((10, 56)).obter_conectividade_algebrica()'''
+print grafo.copia().obter_grafo_equivalente_com_aresta_adicionada((10, 70)).obter_conectividade_algebrica()
+print grafo.copia().obter_grafo_equivalente_com_aresta_adicionada((10, 56)).obter_conectividade_algebrica()'''
 
 objeto_experimento_c = ExperimentoC()
 objeto_experimento_c.executar()
@@ -111,7 +111,7 @@ objeto_experimento_c.executar()
 #for grafo in lista_de_grafos:
 #    tabela
 
-#DesenhistaDeGrafos().plotar_grafo_na_tela(ExperimentoB().gerar_grafos().adicionar_aresta((10, 70)))
+#DesenhistaDeGrafos().plotar_grafo_na_tela(ExperimentoB().gerar_grafos().obter_grafo_equivalente_com_aresta_adicionada((10, 70)))
 
 
         #lista_de_grafos.append(GeradorDeGrafos().gerar_arvore_t(1, 38, 38))

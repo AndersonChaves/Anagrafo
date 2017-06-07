@@ -54,7 +54,7 @@ class FrmTelaPrincipal(QtGui.QMainWindow):
         k = int(str(self.ui.edtFolhas.text()).strip())
         d = int(str(self.ui.edtDiametro.text()).strip())
         l = n - k - (d - 1)
-        return GeradorDeGrafos().gerar_arvore_t(k, l, d)
+        return GeradorDeGrafos().gerar_double_broom(k, l, d)
         #return GeradorDeGrafos().gerar_starlike([5, 5, 5, 5])
 
     def atualizar_visualizacao(self):
@@ -71,8 +71,8 @@ class FrmTelaPrincipal(QtGui.QMainWindow):
         return DesenhistaDeGrafos().obter_grafo_plotado_de_acordo_com_vetor_fiedler(self.grafo_exibido)
 
     def atualizar_imagem(self):
-        self.visualizacao_do_grafo.savefig('viasualizacao')
-        pixmap = QtGui.QPixmap('viasualizacao.png')
+        self.visualizacao_do_grafo.savefig('visualizacao')
+        pixmap = QtGui.QPixmap('visualizacao.png')
         item = QtGui.QGraphicsPixmapItem(pixmap)
         scene = QtGui.QGraphicsScene()
         scene.addItem(item)
@@ -82,10 +82,10 @@ class FrmTelaPrincipal(QtGui.QMainWindow):
 
     def gerar_visualizacao_do_grafo_de_acordo_com_numero_isoperimetrico(self):
         melhor_aresta = AlgoritmoHeuristicaDeForcaBruta().executar_algoritmo(self.grafo_exibido)
-        grafo_com_arestas_adicionais = self.grafo_exibido.copia().adicionar_aresta(melhor_aresta)
+        grafo_com_arestas_adicionais = self.grafo_exibido.copia().obter_grafo_equivalente_com_aresta_adicionada(melhor_aresta)
         arestas_cheeger = AlgoritmoHeuristicaIsoperimetrica().executar_algoritmo(self.grafo_exibido)
         for aresta in arestas_cheeger:
-            grafo_com_arestas_adicionais.adicionar_aresta(aresta)
+            grafo_com_arestas_adicionais.obter_grafo_equivalente_com_aresta_adicionada(aresta)
         return DesenhistaDeGrafos().obter_grafo_plotado_de_acordo_com_numero_isoperimetrico(
             grafo_com_arestas_adicionais, [melhor_aresta, arestas_cheeger])
 
@@ -95,7 +95,7 @@ class FrmTelaPrincipal(QtGui.QMainWindow):
     def adicionar_aresta(self):
         aresta = make_tuple(str(self.ui.edtAdicionarAresta.text()).strip())
         aresta = (aresta[0] - 1, aresta[1] - 1)
-        self.grafo_exibido.adicionar_aresta(aresta)
+        self.grafo_exibido.obter_grafo_equivalente_com_aresta_adicionada(aresta)
         self.atualizar_memo()
         self.atualizar_visualizacao()
         self.resized.emit()
