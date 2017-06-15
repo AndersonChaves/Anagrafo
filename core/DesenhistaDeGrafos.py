@@ -1,23 +1,65 @@
+# -*- coding: UTF-8 -*-
 import networkx as nx
 import matplotlib.pyplot as plt
 import os
 
 
 class DesenhistaDeGrafos:
-    tamanhos_de_fonte = [15, 12, 8]
+    #tamanhos_de_fonte = [15, 12, 8]
+    tamanhos_de_fonte = [12, 9, 7]
 
     def obter_grafo_plotado_de_acordo_com_vetor_fiedler(self, grafo, arestas_sugeridas=()):
         vertices_positivos, vertices_negativos = grafo.obter_particionamento_pelo_vetor_fiedler()
         return self.obter_grafo_plotado(grafo, [vertices_positivos, vertices_negativos], arestas_sugeridas)
 
+    def plotar_grafo_em_diretorio_de_acordo_com_numero_isoperimetrico(self, grafo, diretorio, *parametros):
+        arestas_a_destacar = []
+        labels = []
+        if len(parametros) > 0:
+            arestas_a_destacar = parametros[0]
+        if len(parametros) > 1:
+            cores = parametros[1]
+        else:
+            cores = ['g', 'm']
+        if len(parametros) > 2:
+            labels = parametros[2]
+
+        figura = self.obter_grafo_plotado_de_acordo_com_numero_isoperimetrico(grafo,
+                                                                              arestas_a_destacar,
+                                                                              cores,
+                                                                              labels)
+        nome_do_arquivo = grafo.obter_nome() + '.png'
+        self.plotar_figura_em_diretorio(figura, diretorio, nome_do_arquivo)
+
+    def obter_grafo_plotado_de_acordo_com_numero_isoperimetrico(self, grafo,
+                                                                arestas_a_destacar=None,
+                                                                cores_das_arestas=('r', 'b'),
+                                                                labels=None):
+
+        vertices_a, vertices_b = grafo.obter_particionamento_isoperimetrico()
+
+        #rotula os vertices conforme os componentes caracteristicos
+        vetor_fiedler = grafo.obter_vetor_fiedler()
+        self.tamanhos_de_fonte = [12, 10, 7]
+        if labels != None:
+            labels, i = {}, 0
+            for node in grafo.obter_lista_de_vertices():
+                labels[node] = round(vetor_fiedler[i], 4)
+                i+=1
+        titulo = "Aresta caracteristica (vermelho) e arestas pertencentes a delta x (azul)"
+        return self.obter_grafo_plotado(grafo, [vertices_a, vertices_b], arestas_a_destacar,
+                                        cores_das_arestas, cores_dos_vertices = ['g', 'm'], labels=labels,
+                                        titulo = titulo)
+
     def obter_grafo_plotado(self, grafo, listas_de_vertices, arestas_a_ressaltar,
-                            cores_das_arestas = ('r', 'b'), cores_dos_vertices = ('r', 'b'), labels = None):
+                            cores_das_arestas = ('r', 'b'), cores_dos_vertices = ('r', 'b'), labels = None,
+                            titulo = ""):
         grafo_nx = grafo.grafo_nx
         figura = plt.figure()
         figura.suptitle(grafo.obter_nome(), fontsize=14, fontweight='bold')
         ax = figura.add_subplot(111)
         figura.subplots_adjust(top=0.90)
-        ax.set_title('Melhor aresta (vermelho) e aresta isoperimetrica (azul)')
+        ax.set_title(titulo)
 
         plt.axis('off')
         tamanho_do_no = self.obter_tamanho_do_no(grafo)
@@ -42,6 +84,7 @@ class DesenhistaDeGrafos:
 
         nx.draw_networkx_edges(grafo_nx, pos, width=1.0, alpha=0.5, edgelist=arestas_base)
         indice_da_cor = 0
+        a = grafo.grafo_nx.edges()
         for lista_de_arestas in arestas_a_ressaltar:
             nx.draw_networkx_edges(grafo_nx, pos, width=2.0, alpha=0.5, edgelist=lista_de_arestas, edge_color=cores_das_arestas[indice_da_cor])
             indice_da_cor += 1
@@ -52,51 +95,6 @@ class DesenhistaDeGrafos:
         nx.draw_networkx_labels(grafo_nx, pos, labels, font_size=tamanho_da_fonte, ax=None)
         return figura
 
-    def plotar_grafo_em_diretorio_de_acordo_com_numero_isoperimetrico(self, grafo, diretorio, *parametros):
-        arestas_sugeridas = []
-        cores = []
-        labels = []
-        if len(parametros) > 0:
-            arestas_sugeridas = parametros[0]
-        if len(parametros) > 1:
-            cores = parametros[1]
-        else:
-            cores = ['g', 'm']
-        if len(parametros) > 2:
-            labels = parametros[2]
-
-        figura = self.obter_grafo_plotado_de_acordo_com_numero_isoperimetrico(grafo,
-                                                                              arestas_sugeridas,
-                                                                              cores,
-                                                                              labels)
-        nome_do_arquivo = grafo.obter_nome() + '.png'
-        self.plotar_figura_em_diretorio(figura, diretorio, nome_do_arquivo)
-
-    def obter_grafo_plotado_de_acordo_com_numero_isoperimetrico(self, grafo,
-                                                                arestas_sugeridas = None,
-                                                                cores = (),
-                                                                labels = None):
-
-
-        grafo_base = grafo.copia()
-        if arestas_sugeridas == None: arestas_sugeridas = []
-        for lista in arestas_sugeridas:
-            for aresta in lista:
-                if grafo_base.tem_aresta(aresta):
-                    grafo_base.remover_aresta(aresta)
-
-        vertices_a, vertices_b = grafo_base.obter_particionamento_isoperimetrico()
-
-        #rotula os vertices conforme os componentes caracteristicos
-        vetor_fiedler = grafo_base.obter_vetor_fiedler()
-        self.tamanhos_de_fonte = [12, 10, 7]
-        labels, i = {}, 0
-        for node in grafo.obter_lista_de_vertices():
-            labels[node] = round(vetor_fiedler[i], 2)
-            i+=1
-
-        return self.obter_grafo_plotado(grafo, [vertices_a, vertices_b], arestas_sugeridas,
-                                        cores_das_arestas = ['r', 'b'], cores_dos_vertices = ['g', 'm'], labels=labels)
 
     def plotar_figura_em_diretorio(self, figura, diretorio, nome_do_arquivo):
         caminho_do_arquivo = diretorio + '\\' + nome_do_arquivo
@@ -149,7 +147,7 @@ class DesenhistaDeGrafos:
         arestas_sugeridas = arestas_de_maior_conectividade
         for aresta in arestas_sugeridas:
             if grafo_base.tem_aresta(aresta):
-                grafo_base.remover_aresta(aresta)
+                grafo_base.obter_grafo_equivalente_removendo_aresta(aresta)
 
         verticesPositivos, verticesNegativos = grafo_base.obter_particionamento_pelo_vetor_fiedler()
 
@@ -177,8 +175,7 @@ class DesenhistaDeGrafos:
 
 
         nx.draw_networkx_edges(grafonx, pos, width=1.0, alpha=0.5)
-        nx.draw_networkx_edges(grafonx, pos, width=3.0, alpha=0.5, edgelist=[arestas_de_maior_conectividade[0]], edge_color='r')
-        nx.draw_networkx_edges(grafonx, pos, width=3.0, alpha=0.5, edgelist=[arestas_de_maior_conectividade[1]], edge_color='r')
+        nx.draw_networkx_edges(grafonx, pos, width=3.0, alpha=0.5, edgelist=arestas_de_maior_conectividade, edge_color='r')
         labels = {}
         for node in grafonx.nodes():
             labels[node] = str(int(node) + 1)

@@ -2,17 +2,12 @@
 import sys, os
 from PyQt4 import QtGui, QtCore
 from Ui_MainWindow import Ui_MainWindow
-#from core import GeradorDeGrafos, DesenhistaDeGrafos
 from core.GeradorDeGrafos import GeradorDeGrafos
-from core.DesenhistaDeGrafos import DesenhistaDeGrafos
+from core.DesenhistaDeGrafosNovo import DesenhistaDeGrafos
 from core.DescritorDeGrafos import Descritor_de_grafos
 from AlgoritmoHeuristicaDeForcaBruta import AlgoritmoHeuristicaDeForcaBruta
 from AlgoritmoHeuristicaIsoperimetrica import AlgoritmoHeuristicaIsoperimetrica
-#from ExperimentoE import ExperimentoE
-#from ExperimentoF import ExperimentoF
-#from ExperimentoG import ExperimentoG
-from ExperimentoH import ExperimentoH
-#from ExperimentoTeste import ExperimentoTeste
+from ExperimentoI import ExperimentoI
 
 from ast import literal_eval as make_tuple
 
@@ -20,7 +15,7 @@ class FrmTelaPrincipal(QtGui.QMainWindow):
     resized = QtCore.pyqtSignal()
     grafo_exibido = None
     visualizacao_do_grafo = None
-    experimento = ExperimentoH()
+    experimento = ExperimentoI()
 
     def __init__(self):
         QtGui.QMainWindow.__init__(self)
@@ -64,11 +59,13 @@ class FrmTelaPrincipal(QtGui.QMainWindow):
         self.atualizar_imagem()
 
     def gerar_visualizacao_do_grafo(self):
-        return self.gerar_visualizacao_do_grafo_segundo_vetor_fiedler()
-        #return self.gerar_visualizacao_do_grafo_de_acordo_com_numero_isoperimetrico()
+        #return self.gerar_visualizacao_do_grafo_segundo_vetor_fiedler()
+        return self.gerar_visualizacao_do_grafo_de_acordo_com_numero_isoperimetrico()
 
     def gerar_visualizacao_do_grafo_segundo_vetor_fiedler(self):
-        return DesenhistaDeGrafos().obter_grafo_plotado_de_acordo_com_vetor_fiedler(self.grafo_exibido)
+        desenhista = DesenhistaDeGrafos(self.grafo_exibido)
+        desenhista.efetuar_particionamento_espectral()
+        return desenhista.obter_grafo_plotado()
 
     def atualizar_imagem(self):
         self.visualizacao_do_grafo.savefig('visualizacao')
@@ -81,13 +78,13 @@ class FrmTelaPrincipal(QtGui.QMainWindow):
         self.ui.graphicsView.update()
 
     def gerar_visualizacao_do_grafo_de_acordo_com_numero_isoperimetrico(self):
-        melhor_aresta = AlgoritmoHeuristicaDeForcaBruta().executar_algoritmo(self.grafo_exibido)
-        grafo_com_arestas_adicionais = self.grafo_exibido.copia().obter_grafo_equivalente_com_aresta_adicionada(melhor_aresta)
-        arestas_cheeger = AlgoritmoHeuristicaIsoperimetrica().executar_algoritmo(self.grafo_exibido)
-        for aresta in arestas_cheeger:
-            grafo_com_arestas_adicionais.obter_grafo_equivalente_com_aresta_adicionada(aresta)
-        return DesenhistaDeGrafos().obter_grafo_plotado_de_acordo_com_numero_isoperimetrico(
-            grafo_com_arestas_adicionais, [melhor_aresta, arestas_cheeger])
+        #melhor_aresta = AlgoritmoHeuristicaDeForcaBruta().executar_algoritmo(self.grafo_exibido)
+        #grafo_com_arestas_adicionais = self.grafo_exibido.copia().obter_grafo_equivalente_com_aresta_adicionada(melhor_aresta)
+        arestas_cheeger = self.grafo_exibido.obter_arestas_de_maior_aumento_isoperimetrico()
+        desenhista = DesenhistaDeGrafos(self.grafo_exibido)
+        desenhista.efetuar_particionamento_isoperimetrico()
+        desenhista.destacar_arestas(arestas_cheeger, 'b')
+        return desenhista.obter_grafo_plotado()
 
     def atualizar_memo(self):
         self.ui.textEdit.setText(Descritor_de_grafos(self.grafo_exibido).gerar_memo_de_informacoes_do_grafo())

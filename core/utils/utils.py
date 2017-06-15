@@ -1,4 +1,5 @@
 import os
+from math import pow
 
 def criar_diretorio_se_nao_existir(diretorio):
     if not os.path.exists(diretorio):
@@ -12,3 +13,9 @@ def formatar_lista_de_arestas_para_exibicao(lista_de_arestas):
     for aresta in lista_de_arestas:
         lista_formatada.append(formatar_aresta_para_exibicao(aresta))
     return lista_formatada
+
+def zero(valor, precisao = 12):
+    if abs(valor) < pow(10, -precisao):
+        return True
+    else:
+        return False

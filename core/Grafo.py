@@ -1,7 +1,7 @@
 import networkx as nx
 from ParticionadorEspectral import ParticionadorEspectral
 from Caminho import Caminho
-from utils import CalculoDeVetores
+from AnalisadorDeGrafos import AnalisadorDeGrafos
 
 class Grafo:
     def __init__(self, grafo_nx, nome=""):
@@ -13,6 +13,7 @@ class Grafo:
         self.diametro = -1
         self.__conectividade_algebrica = -1
         self.scipy_laplaciana = None
+        self.analisador = AnalisadorDeGrafos(self)
 
     def obter_nome(self):
         return self.nome
@@ -20,33 +21,8 @@ class Grafo:
     def obter_ordem(self):
         return self.grafo_nx.order()
 
-    def obter_vetor_fiedler(self):
-        if self.vetor_fiedler == []:
-            self.vetor_fiedler, self.__conectividade_algebrica = CalculoDeVetores.calcularVetorFiedlerNumpy(self.grafo_nx)
-        return self.vetor_fiedler
-
-    def obter_conectividade_algebrica(self):
-        if self.__conectividade_algebrica == -1:
-            self.vetor_fiedler, self.__conectividade_algebrica = CalculoDeVetores.calcularVetorFiedlerNumpy(self.grafo_nx)
-            self.__conectividade_algebrica = round(self.__conectividade_algebrica, 12)
-        return self.__conectividade_algebrica
-
     def obter_lista_de_vertices(self):
         return self.grafo_nx.nodes()
-
-    def obter_particionamento_pelo_vetor_fiedler(self):
-        vertices_positivos = []
-        vertices_negativos = []
-        vetor_fiedler = self.obter_vetor_fiedler()
-        for i in range(len(vetor_fiedler)):
-            if vetor_fiedler[i] >= 0:
-                vertices_positivos.append(self.grafo_nx.nodes()[i])
-            else:
-                vertices_negativos.append(self.grafo_nx.nodes()[i])
-        return vertices_positivos, vertices_negativos
-
-    def obter_particionamento_isoperimetrico(self):
-        return CalculoDeVetores.calcular_particionamento_isoperimetrico(self)
 
     def obter_diametro(self):
         if self.diametro == -1:
@@ -54,16 +30,14 @@ class Grafo:
         else:
             return self.diametro
 
-    def obter_particionamento_espectral_de_aresta(self, id_no1, id_no2):
-        particionador_espectral = ParticionadorEspectral(self)
-        return particionador_espectral.obter_particionamento_espectral_de_aresta(id_no1, id_no2)
-
-    def tem_aresta(self, aresta):
-        return self.grafo_nx.has_edge(*aresta)
+    def copia(self):
+        return Grafo(self.grafo_nx.copy(), self.nome)
 
     def obter_grafo_equivalente_com_aresta_adicionada(self, aresta):
         novo_nome = self.nome + "+" + str(aresta)
-        return Grafo(self.grafo_nx.copy().add_edge(*aresta), novo_nome)
+        g = self.grafo_nx.copy()
+        g.add_edge(*aresta)
+        return Grafo(g, novo_nome)
 
     def obter_grafo_equivalente_com_arestas_adicionadas(self, lista_de_arestas):
         novo_grafo = self
@@ -71,10 +45,25 @@ class Grafo:
             novo_grafo = novo_grafo.obter_grafo_equivalente_com_aresta_adicionada(aresta)
         return novo_grafo
 
-    def remover_aresta(self, aresta):
-        self.grafo_nx.remove_edge(*aresta)
-        self.zerar_parametros_calculados()
-        return self
+    def obter_grafo_equivalente_removendo_aresta(self, aresta):
+        novo_nome = self.nome + "-" + str(aresta)
+        return Grafo(self.grafo_nx.copy().remove_edge(*aresta), novo_nome)
+
+    def obter_vetor_fiedler(self):
+        return self.analisador.obter_vetor_fiedler()
+
+    def obter_conectividade_algebrica(self):
+        return self.analisador.obter_conectividade_algebrica()
+
+    def obter_particionamento_pelo_vetor_fiedler(self):
+        return self.analisador.obter_particionamento_pelo_vetor_fiedler()
+
+    def obter_particionamento_isoperimetrico(self):
+        return self.analisador.obter_particionamento_isoperimetrico()
+
+    def obter_particionamento_espectral_de_aresta(self, id_no1, id_no2):
+        particionador_espectral = ParticionadorEspectral(self)
+        return particionador_espectral.obter_particionamento_espectral_de_aresta(id_no1, id_no2)
 
     def zerar_parametros_calculados(self):
         self.diametro = -1
@@ -95,9 +84,6 @@ class Grafo:
         graus = sorted(nx.degree(self.grafo_nx).values(), reverse=True)
         dmax = max(graus)
         return dmax
-
-    def copia(self):
-        return Grafo(self.grafo_nx.copy(), self.nome)
 
     def menor_caminho(self, vertice_origem, vertice_destino):
         return nx.shortest_path(self.grafo_nx, vertice_origem, vertice_destino)
@@ -120,3 +106,25 @@ class Grafo:
             lista_de_caminhos.append(Caminho(dicionario_de_caminhos[element]))
         return lista_de_caminhos
 
+    #funcao exclusiva para arvores
+    def obter_aresta_caracteristica(self):
+        return self.analisador.obter_aresta_caracteristica()
+
+    # funcao exclusiva para arvores
+    def obter_vertices_caracteristicos(self):
+        return self.analisador.obter_vertices_caracteristicos()
+
+    def obter_arestas_de_fronteira_de_particionamento_isoperimetrico(self):
+        return self.analisador.obter_arestas_de_fronteira_de_particionamento_isoperimetrico()
+
+    def atribuir_analisador(self, analisador):
+        self.analisador = analisador
+
+    def tem_aresta(self, aresta):
+        return aresta in self.obter_lista_de_arestas()
+
+    def obter_arestas_de_maior_aumento_isoperimetrico(self):
+        return self.analisador.obter_arestas_de_maior_aumento_isoperimetrico()
+
+    def obter_numero_isoperimetrico(self):
+        return self.analisador.obter_numero_isoperimetrico()

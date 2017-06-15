@@ -1,8 +1,6 @@
 # *-* coding:utf8 *-*
 
 #Esta classe analisa informacoes sobre grafos starlike.
-#A principal tarefa desta classe é identificar um conjunto de arestas que não contenha nenhum par de arestas
-#de mesmo tipo.
 
 class AnalisadorDeGrafosStarlike:
     starlike = None
@@ -25,6 +23,58 @@ class AnalisadorDeGrafosStarlike:
             for j in range(self.starlike.obter_ordem()):
                 self.informacoes_de_arestas[i].append({})
 
+    def obter_arestas_de_todos_os_tipos(self):
+        possiveis_arestas = self.starlike.obter_grafo_complemento().obter_lista_de_arestas()
+        self.gerar_informacoes_de_arestas(possiveis_arestas)
+        possiveis_arestas = self.remover_arestas_de_mesmo_tipo(possiveis_arestas)
+
+        return possiveis_arestas
+
+    def obter_pares_de_arestas_de_todos_os_tipos(self):
+        possiveis_arestas = self.starlike.obter_grafo_complemento().obter_lista_de_arestas()
+
+
+
+    def remover_arestas_de_mesmo_tipo(self, lista_de_arestas):
+        tipos_ja_identificados = []
+        lista_de_arestas_filtrada = []
+        for aresta in lista_de_arestas:
+            a, b = aresta
+            if self.informacoes_de_arestas[a][b]["codigo"] not in tipos_ja_identificados:
+                lista_de_arestas_filtrada.append(aresta)
+                tipos_ja_identificados.append(self.informacoes_de_arestas[a][b]["codigo"])
+        return lista_de_arestas_filtrada
+
+    def gerar_informacoes_de_arestas(self, lista_de_arestas):
+        for aresta in lista_de_arestas:
+            a, b = aresta
+            if not "codigo" in self.informacoes_de_arestas[a][b]:
+                self.informacoes_de_arestas[a][b]["codigo"] = self.gerar_codigo_da_aresta(aresta)
+
+    def gerar_codigo_da_aresta(self, aresta):
+        tipo = self.obter_tipo_da_aresta(aresta)
+        v1, v2 = aresta
+        ramo_1, pos1 = self.identificar_ramo_correspondente_a_vertice(v1)
+        ramo_2, pos2 = self.identificar_ramo_correspondente_a_vertice(v2)
+
+        if tipo == "a":
+            diam_2 = len(self.obter_ramo_correspondente_a_vertice(v2)) - 1
+            return tipo + " " + str(pos2) + " " + str(diam_2)
+        else:
+            diam_1 = len(ramo_1) - 1
+            diam_2 = len(ramo_2) - 1
+            return tipo + " " + str(pos1) + " " + str(diam_1) + \
+                                str(pos2) + " " + str(diam_2)
+
+    def obter_tipo_da_aresta(self, aresta):
+        v1, v2 = aresta
+        if v1 == 0:
+            return "a"
+        elif self.vertices_em_mesmo_ramo(v1, v2):
+            return "b"
+        else:
+            return "c"
+
     def obter_diametros_dos_ramos(self):
         if self.diametros_dos_ramos <> []:
             return self.diametros_dos_ramos
@@ -41,10 +91,24 @@ class AnalisadorDeGrafosStarlike:
                 tamanho = 0
         return self.diametros_dos_ramos
 
-    def obter_arestas_de_todos_os_tipos(self):
-        lista = self.obter_possiveis_arestas_de_mesmo_ramo_de_todos_os_tipos()
-        lista = lista + self.obter_possiveis_arestas_de_todos_os_tipos_entre_ramos()
-        return lista
+
+    def vertices_em_mesmo_ramo(self, v1, v2):
+        r1 = self.obter_ramo_correspondente_a_vertice(v1)
+        r2 = self.obter_ramo_correspondente_a_vertice(v2)
+        return r1 == r2
+
+    def obter_ramo_correspondente_a_vertice(self, vertice):
+        return self.identificar_ramo_correspondente_a_vertice(vertice)[0]
+
+    def obter_posicao_do_vertice_em_ramo(self, vertice):
+        return self.identificar_ramo_correspondente_a_vertice(vertice)[1]
+
+    def identificar_ramo_correspondente_a_vertice(self, vertice):
+        for ramo in self.ramos:
+            for i in range(len(ramo)):
+                if ramo[i] == vertice:
+                    return (ramo, i)
+        return None
 
     def obter_possiveis_arestas_de_mesmo_ramo_de_todos_os_tipos(self):
         lista_de_possiveis_arestas = []
@@ -106,65 +170,3 @@ class AnalisadorDeGrafosStarlike:
                 lista.append(aresta)
         return lista
 
-    def obter_arestas_de_cada_tipo(self, quantidade_de_arestas_de_cada_tipo):
-        possiveis_arestas = self.starlike.obter_grafo_complemento().obter_lista_de_arestas()
-        self.gerar_informacoes_de_arestas(possiveis_arestas)
-        possiveis_arestas = self.remover_arestas_de_mesmo_tipo(possiveis_arestas)
-        return possiveis_arestas
-
-    def remover_arestas_de_mesmo_tipo(self, lista_de_arestas):
-        tipos_ja_identificados = []
-        lista_de_arestas_filtrada = []
-        for aresta in lista_de_arestas:
-            a, b = aresta
-            if self.informacoes_de_arestas[a][b]["codigo"] not in tipos_ja_identificados:
-                lista_de_arestas_filtrada.append(aresta)
-                tipos_ja_identificados.append(self.informacoes_de_arestas[a][b]["codigo"])
-        return lista_de_arestas_filtrada
-
-    def gerar_informacoes_de_arestas(self, lista_de_arestas):
-        for aresta in lista_de_arestas:
-            a, b = aresta
-            self.informacoes_de_arestas[a][b]["codigo"] = self.gerar_codigo_da_aresta(aresta)
-
-    def gerar_codigo_da_aresta(self, aresta):
-        tipo = self.obter_tipo_da_aresta(aresta)
-        v1, v2 = aresta
-        ramo_1, pos1 = self.identificar_ramo_correspondente_a_vertice(v1)
-        ramo_2, pos2 = self.identificar_ramo_correspondente_a_vertice(v2)
-
-        if tipo == "a":
-            diam_2 = len(self.obter_ramo_correspondente_a_vertice(v2)) - 1
-            return tipo + " " + str(pos2) + " " + str(diam_2)
-        else:
-            diam_1 = len(ramo_1) - 1
-            diam_2 = len(ramo_2) - 1
-            return tipo + " " + str(pos1) + " " + str(diam_1) + \
-                                str(pos2) + " " + str(diam_2)
-
-    def obter_tipo_da_aresta(self, aresta):
-        v1, v2 = aresta
-        if v1 == 0:
-            return "a"
-        elif self.vertices_em_mesmo_ramo(v1, v2):
-            return "b"
-        else:
-            return "c"
-
-    def vertices_em_mesmo_ramo(self, v1, v2):
-        r1 = self.obter_ramo_correspondente_a_vertice(v1)
-        r2 = self.obter_ramo_correspondente_a_vertice(v2)
-        return r1 == r2
-
-    def obter_ramo_correspondente_a_vertice(self, vertice):
-        return self.identificar_ramo_correspondente_a_vertice(vertice)[0]
-
-    def obter_posicao_do_vertice_em_ramo(self, vertice):
-        return self.identificar_ramo_correspondente_a_vertice(vertice)[1]
-
-    def identificar_ramo_correspondente_a_vertice(self, vertice):
-        for ramo in self.ramos:
-            for i in range(len(ramo)):
-                if ramo[i] == vertice:
-                    return (ramo, i)
-        return None

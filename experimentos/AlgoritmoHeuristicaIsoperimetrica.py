@@ -1,5 +1,5 @@
 from AlgoritmoDeHeuristicaDeConectividadeAlgebrica import AlgoritmoDeHeuristicaDeConectividadeAlgebrica
-import core.utils.CalculoDeVetores as CalculoDeVetores
+import core.utils.CalculosDeGrafos as CalculoDeVetores
 
 class AlgoritmoHeuristicaIsoperimetrica(AlgoritmoDeHeuristicaDeConectividadeAlgebrica):
     melhor_aresta = (-1, -1)
@@ -22,6 +22,7 @@ class AlgoritmoHeuristicaIsoperimetrica(AlgoritmoDeHeuristicaDeConectividadeAlge
 
         self.lista_de_melhores_arestas = lista_de_melhores_arestas
         self.melhor_aresta = lista_de_melhores_arestas[0]
+        return
 
     def obter_melhor_aresta(self):
         return self.melhor_aresta

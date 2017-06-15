@@ -1,7 +1,7 @@
 from Grafo import Grafo
 import numpy
 import networkx as nx
-from utils import CalculoDeVetores
+from utils import CalculosDeGrafos
 from Tabela import Tabela
 
 class Descritor_de_grafos:
@@ -47,7 +47,10 @@ class Descritor_de_grafos:
         #periferia = [v + 1 for v in nx.periphery(self.grafo.grafo_nx)]
         #texto += "Periferia: " + str(periferia)+ '\n'
         #texto += "Densidade: " + str(nx.density(self.grafo.grafo_nx)) + '\n\n'
-        texto += "Numero Isoperimetrico: " + str(CalculoDeVetores.calcular_numero_isoperimetrico(self.grafo)) + '\n\n'
+        texto += "Numero Isoperimetrico: " + str(self.grafo.obter_numero_isoperimetrico()) + '\n\n'
+
+        texto += "Particionamento Isoperimetrico:"
+        texto += str(self.grafo.obter_particionamento_isoperimetrico())
         #texto += str(CalculoDeVetores.cheeger(self.grafo))
 
         return texto

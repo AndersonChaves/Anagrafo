@@ -22,7 +22,7 @@ def posicaoDoSegundoMenorValorEmLista(listaDeNumeros):
 def obter_segundo_menor_valor_em_lista(lista_de_numeros):
     return lista_de_numeros[posicaoDoSegundoMenorValorEmLista(lista_de_numeros)]
 
-def calcularVetorFiedlerNumpy(grafo):
+def calcular_vetor_fiedler_numpy(grafo):
     eigenvalues, eigenvectors = numpy.linalg.eig(nx.laplacian_matrix(grafo).A)
     eigenvalues = eigenvalues.real
     posicaoVetor = posicaoDoSegundoMenorValorEmLista(eigenvalues)
@@ -34,7 +34,7 @@ def calcularVetorFiedlerNumpy(grafo):
 def calcularVetoresFiedler(listaDeGrafos):
   F = []
   for grafo in listaDeGrafos:
-    f = calcularVetorFiedlerNumpy(grafo)
+    f = calcular_vetor_fiedler_numpy(grafo)
     F.append(f)
   return F
 
@@ -61,7 +61,6 @@ def _calcular_valor_cheeger(grafo, particao_a, particao_b):
     delta_a = obter_arestas_ligando_particoes(grafo, particao_a, particao_b)
     valor_cheeger = float(len(delta_a)) / float(len(particao_a))
     return valor_cheeger
-
 
 def calcular_parametros_isoperimetricos(grafo):
     lista = grafo.grafo_nx.nodes()

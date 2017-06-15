@@ -144,8 +144,8 @@ class GeradorDeGrafos():
             n = numero_de_ramos * l + 1
         return lista_de_grafos
 
-from AnalisadorDeGrafosStarlike import AnalisadorDeGrafosStarlike
-x = GeradorDeGrafos().gerar_starlike([3, 3, 3])
+'''from AnalisadorDeGrafosStarlike import AnalisadorDeGrafosStarlike
+x = GeradorDeGrafos().gerar_starlike([3, 3, 2])
 a = AnalisadorDeGrafosStarlike(x)
-for aresta in a.obter_arestas_de_cada_tipo(quantidade_de_arestas_de_cada_tipo=1):
-    print aresta, a.informacoes_de_arestas[aresta[0]][aresta[1]]
+for aresta in a.obter_arestas_de_todos_os_tipos(quantidade_de_arestas_de_cada_tipo=1):
+    print aresta, a.informacoes_de_arestas[aresta[0]][aresta[1]]'''

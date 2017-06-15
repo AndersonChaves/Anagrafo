@@ -1,6 +1,7 @@
 from AlgoritmoDeHeuristicaDeConectividadeAlgebrica import AlgoritmoDeHeuristicaDeConectividadeAlgebrica
 from DescritorDeArestasDeArvoreT import DescritorDeArestasDeArvoreT
 from itertools import combinations
+from AnalisadorDeGrafosStarlike import AnalisadorDeGrafosStarlike
 
 class AlgoritmoHeuristicaDeForcaBruta(AlgoritmoDeHeuristicaDeConectividadeAlgebrica):
     def _executar(self, grafo):
@@ -18,11 +19,16 @@ class AlgoritmoHeuristicaDeForcaBruta(AlgoritmoDeHeuristicaDeConectividadeAlgebr
         return "Heuristica de Forca Bruta"
 
 class AlgoritmoHeuristicaDeForcaBrutaParaMaisDeUmaAresta(AlgoritmoDeHeuristicaDeConectividadeAlgebrica):
+    quantidade_de_arestas = 1
+
+    def __init__(self, quantidade_de_arestas):
+        self.quantidade_de_arestas = quantidade_de_arestas
+
     def _executar(self, grafo):
         arestas_complementares = grafo.obter_grafo_complemento().obter_lista_de_arestas()
         maior_conectividade = -1
         melhor_conjunto_de_arestas = []
-        for combinacao_de_arestas in combinations(arestas_complementares, 2):
+        for combinacao_de_arestas in combinations(arestas_complementares, self.quantidade_de_arestas):
             nova_conectividade = grafo.copia().obter_grafo_equivalente_com_arestas_adicionadas(combinacao_de_arestas).obter_conectividade_algebrica()
             if nova_conectividade > maior_conectividade:
                 maior_conectividade = nova_conectividade
@@ -97,13 +103,27 @@ class AlgoritmoHeuristicaDeForcaBrutaAlterado(AlgoritmoDeHeuristicaDeConectivida
         return "Heuristica de Forca Bruta Alterado"
 
 class AlgoritmoHeuristicaDeForcaBrutaStarlike():
-
     def _executar(self, grafo):
-        arestas_complementares = grafo.obter_grafo_complemento().obter_lista_de_arestas()
+        arestas_de_todos_os_tipos = AnalisadorDeGrafosStarlike(grafo).obter_arestas_de_todos_os_tipos(1)
         maior_conectividade = -1
         melhor_aresta = (-1, -1)
-        for aresta in arestas_complementares:
-            nova_conectividade = grafo.copia().obter_grafo_equivalente_com_aresta_adicionada(aresta).obter_conectividade_algebrica()
+        for aresta in arestas_de_todos_os_tipos:
+            nova_conectividade = grafo.obter_grafo_equivalente_com_aresta_adicionada(aresta).obter_conectividade_algebrica()
+            if nova_conectividade > maior_conectividade:
+                maior_conectividade = nova_conectividade
+                melhor_aresta = aresta
+        return melhor_aresta
+
+    def obter_nome_do_algoritmo(self):
+        return "Heuristica de Forca Bruta (Starlike)"
+
+class AlgoritmoHeuristicaDeForcaBrutaStarlikeDeDuasArestas():
+    def _executar(self, grafo):
+        arestas_de_todos_os_tipos = AnalisadorDeGrafosStarlike(grafo).obter_pares_de_arestas_de_todos_os_tipos()
+        maior_conectividade = -1
+        melhor_aresta = (-1, -1)
+        for aresta in arestas_de_todos_os_tipos:
+            nova_conectividade = grafo.obter_grafo_equivalente_com_aresta_adicionada(aresta).obter_conectividade_algebrica()
             if nova_conectividade > maior_conectividade:
                 maior_conectividade = nova_conectividade
                 melhor_aresta = aresta

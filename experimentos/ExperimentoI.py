@@ -14,14 +14,10 @@ import time
 import os
 
 """Descrição do Experimento: Este experimento tem como objetivo verificar se há alguma relação
-entre a aresta que maximiza a conectividade algébrica em grafos do tipo 'broom', e o número 
-isoperimétrico. Os testes serão realizados em brooms de diâmetro d = 4 a 20, de ordem máxima 15. 
-Serão analisadas:
-                    a. A aresta que maximiza a conectividade algébrica
-                    b. As arestas que maximizam o número isoperímétrico
-                    c. Os valores característicos dos vértices"""
+entre a aresta característica e as arestas que incidem simultaneamente em X e X^c(conjunto δX).
+Os grafos avaliados são brooms de diâmetro 3 e 4, de até n=50 vértices."""
 
-class ExperimentoG(Experimento):
+class ExperimentoI(Experimento):
     def __init__(self):
         lista_de_parametros = ["D",
                                "N",
@@ -29,19 +25,18 @@ class ExperimentoG(Experimento):
                                "L",
                                "Grafo Original",
                                "Conectividade Algebrica",
-                               "Aresta Efb",
-                               "G + Efb",
-                               "Aresta Eis",
-                               "G + Eis"]
+                               "Aresta Caracteristica",
+                               "Aresta δX"]
         self.tabela_de_resultados = Tabela(lista_de_parametros,
-                                           "Experimento Isoperimetrico 1 - d=4a15 (3105)")
+                                           "Experimento Isoperimetrico I - n= 21 a 25 d=4(1206)")
 
     def gerar_grafos_a_serem_analisados(self):
-        ordem_maxima = 15
+        ordem_minima = 21
+        ordem_maxima = 25
         listas_de_grafos_por_diametro = []
-        for diametro in range(4, 16): #41
+        for diametro in [4]:
             listas_de_grafos_por_ordem = GeradorDeGrafos().gerar_listas_de_double_brooms_por_diametro_variando_ordem_com_k_fixado(
-                ordem_maxima = ordem_maxima, diametro = diametro, k = 1)
+                ordem_minima=ordem_minima, ordem_maxima = ordem_maxima, diametro = diametro, k = 1)
             listas_de_grafos_por_diametro.append(listas_de_grafos_por_ordem)
 
         lista_de_grafos = []
@@ -51,18 +46,11 @@ class ExperimentoG(Experimento):
 
     def obter_dados_de_grafo(self, grafo):
         dicionario_de_resultados = {"grafo": grafo}
-        grafo_fb = grafo.copia()
-        grafo_is = grafo.copia()
-        dicionario_de_resultados["aresta_fb"] = self.executar_heuristica(grafo_fb, AlgoritmoHeuristicaDeForcaBruta())
-        dicionario_de_resultados["novo_grafo_fb"] = grafo_fb.obter_grafo_equivalente_com_aresta_adicionada(dicionario_de_resultados["aresta_fb"]).copia()
-
-        alg = AlgoritmoHeuristicaIsoperimetrica()
-        alg.executar_algoritmo(grafo.copia())
-
-        dicionario_de_resultados["arestas_is"] = alg.obter_lista_de_melhores_arestas()
-        #dicionario_de_resultados[""]
-        dicionario_de_resultados["novo_grafo_is"] = grafo_is.obter_grafo_equivalente_com_arestas_adicionadas(dicionario_de_resultados["arestas_is"]).copia()
-
+        if len(grafo.obter_vertices_caracteristicos()) == 2:
+            dicionario_de_resultados["aresta_caracteristica"] = grafo.obter_aresta_caracteristica()
+        else:
+            dicionario_de_resultados["aresta_caracteristica"] = ()
+        dicionario_de_resultados["arestas_delta_x"] = grafo.obter_arestas_de_fronteira_de_particionamento_isoperimetrico()
         return dicionario_de_resultados
 
     def obter_dado_correspondente_em_dicionario_de_resultados(self, nome_do_campo, dicionario_de_resultados):
@@ -72,18 +60,12 @@ class ExperimentoG(Experimento):
         elif nome_do_campo == "L": return dicionario_de_resultados["grafo"].obter_l()
         elif nome_do_campo == "Grafo Original":           return dicionario_de_resultados["grafo"].obter_nome()
         elif nome_do_campo == "Conectividade Algebrica":  return dicionario_de_resultados["grafo"].obter_conectividade_algebrica()
-        elif nome_do_campo == "Aresta Efb":  return (dicionario_de_resultados["aresta_fb"][0] + 1, dicionario_de_resultados["aresta_fb"][1] + 1)
-        elif nome_do_campo == "G + Efb":     return  dicionario_de_resultados["novo_grafo_fb"].obter_conectividade_algebrica()
-        elif nome_do_campo == "Aresta Eis":
-            lista = []
-            for aresta in dicionario_de_resultados["arestas_is"]:
-                lista.append((aresta[0]+ 1, aresta[1]+1))
-            return lista
-        elif nome_do_campo == "G + Eis":     return  dicionario_de_resultados["novo_grafo_is"].obter_conectividade_algebrica()
+        elif nome_do_campo == "Aresta Caracteristica":  return dicionario_de_resultados["aresta_caracteristica"]
+        elif nome_do_campo == "Aresta δX":     return  dicionario_de_resultados["arestas_delta_x"]
         else: print "Campo não determinado" + nome_do_campo
 
     def criar_tabela_de_resultados(self, dados_do_experimento):
-        path = "Resultados\\ExperimentoF\\Grafos"
+        path = "Resultados\\ExperimentoI\\Grafos"
         for dicionario_de_resultados in dados_do_experimento:
             posicao = 0
             novo_registro = {}
@@ -98,16 +80,22 @@ class ExperimentoG(Experimento):
         if not os.path.exists(diretorio):
             os.makedirs(diretorio)
         for dicionario_de_resultados in dados_do_experimento:
-            grafo_a_ser_desenhado = dicionario_de_resultados["novo_grafo_fb"]
-            aresta_fb = dicionario_de_resultados["aresta_fb"]
-            arestas_is = dicionario_de_resultados["arestas_is"]
+            grafo_a_ser_desenhado = dicionario_de_resultados["grafo"]
+            aresta_caracteristica = dicionario_de_resultados["aresta_caracteristica"]
+            arestas_delta_x = dicionario_de_resultados["arestas_delta_x"]
             print "Particionando grafo conforme numero isoperimetrico", grafo_a_ser_desenhado.obter_nome()
             tempo_inicial = time.time()
-            print "Iniciando Experimento"
-            DesenhistaDeGrafos().plotar_grafo_em_diretorio_de_acordo_com_numero_isoperimetrico(grafo_a_ser_desenhado,
-                                                                                               diretorio,
-                                                                                               [[aresta_fb], arestas_is],
-                                                                                              )
-            print "Tempo de particionamento: " + str(time.time() - tempo_inicial) + " segundos"
+            if aresta_caracteristica != ():
+                DesenhistaDeGrafos().plotar_grafo_em_diretorio_de_acordo_com_numero_isoperimetrico(grafo_a_ser_desenhado,
+                                                                                                   diretorio,
+                                                                                                   [[aresta_caracteristica], arestas_delta_x],
+                                                                                                   ['r', 'b']
+                                                                                                  )
+            else:
+                DesenhistaDeGrafos().plotar_grafo_em_diretorio_de_acordo_com_numero_isoperimetrico(grafo_a_ser_desenhado,
+                                                                                                   diretorio,
+                                                                                                   [arestas_delta_x],
+                                                                                                   ['r']
+                                                                                                  )
 
-ExperimentoG().executar_experimento()
+            print "Tempo de particionamento: " + str(time.time() - tempo_inicial) + " segundos"
