@@ -34,7 +34,7 @@ class Grafo:
         return Grafo(self.grafo_nx.copy(), self.nome)
 
     def obter_grafo_equivalente_com_aresta_adicionada(self, aresta):
-        novo_nome = self.nome + "+" + str(aresta)
+        novo_nome = self.nome + "+" + str((aresta[0]+1, aresta[1]+1))
         g = self.grafo_nx.copy()
         g.add_edge(*aresta)
         return Grafo(g, novo_nome)

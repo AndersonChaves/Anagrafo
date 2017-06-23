@@ -1,4 +1,4 @@
-class DescritorDeArestasDeArvoreT:
+class DescritorDeArestasDeArvoreDoubleBroom:
 
     def __init__(self, arvore_t):
         self.arvore_t = arvore_t

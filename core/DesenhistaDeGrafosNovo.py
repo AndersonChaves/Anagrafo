@@ -3,13 +3,14 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 class DesenhistaDeGrafos:
-    tamanhos_de_fonte = [12, 9, 7]
+    tamanhos_de_fonte = [16, 12, 9]
     tamanhos_dos_nos = [1500, 400, 100]
     cores_de_vertices = ['r', 'b']
     arestas_a_destacar = {}
     particionamento_de_vertices = []
     grafo = None
     posicionamento = None
+    rotulos = []
 
     def __init__(self, grafo, cores_de_vertices=()):
         self.grafo = grafo
@@ -18,12 +19,16 @@ class DesenhistaDeGrafos:
         if cores_de_vertices != ():
             self.cores_de_vertices = cores_de_vertices
         self.figura = plt.figure()
+        self.particionamento_de_vertices = [self.grafo.obter_lista_de_vertices()]
 
     def efetuar_particionamento_espectral(self):
+        print "Efetuando particionamento espectral de grafo " + self.grafo.obter_nome()
         self.cores_de_vertices = ['r', 'b']
         self.particionamento_de_vertices = self.grafo.obter_particionamento_pelo_vetor_fiedler()
+        self.rotulos = self.grafo.obter_vetor_fiedler()
 
     def efetuar_particionamento_isoperimetrico(self):
+        print "Efetuando particionamento isoperimetrico de grafo " + self.grafo.obter_nome()
         self.cores_de_vertices = ['g', 'm']
         self.particionamento_de_vertices = self.grafo.obter_particionamento_isoperimetrico()
 
@@ -56,7 +61,7 @@ class DesenhistaDeGrafos:
 
     def _desenhar_todas_as_arestas(self):
         arestas_do_grafo = self.grafo.obter_lista_de_arestas()
-        nx.draw_networkx_edges(self.grafo_nx, self.posicionamento, width=1.0, alpha=0.5, edgelist=arestas_do_grafo)
+        nx.draw_networkx_edges(self.grafo_nx, self.posicionamento, width=3.0, alpha=1, edgelist=arestas_do_grafo)
         for cor, lista in self.arestas_a_destacar.iteritems():
             nx.draw_networkx_edges(self.grafo_nx,
                                    self.posicionamento,
@@ -79,11 +84,18 @@ class DesenhistaDeGrafos:
         plt.figure().subplots_adjust(top=0.90)
         ax.set_title("titulo")
 
-    def adicionar_labels(self, labels):
-        if labels == None:
+    def adicionar_labels(self):
+        if self.rotulos == []:
             labels = {}
             for node in self.grafo.grafo_nx.nodes():
                 labels[node] = str(int(node) + 1)
+        else:
+            labels = {}
+            i = 0
+            for node in self.grafo.grafo_nx.nodes():
+                labels[node] = str(self.rotulos[i])
+                i += 1
+
         nx.draw_networkx_labels(self.grafo.grafo_nx,
                                 self.posicionamento,
                                 labels,

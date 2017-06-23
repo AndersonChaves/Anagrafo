@@ -1,5 +1,6 @@
 import os
 from math import pow
+from math import factorial
 
 def criar_diretorio_se_nao_existir(diretorio):
     if not os.path.exists(diretorio):
@@ -19,3 +20,9 @@ def zero(valor, precisao = 12):
         return True
     else:
         return False
+
+def quantidade_de_combinacoes(n, r):
+    return (factorial(n) / factorial(n - r)) / factorial(r)
+
+def quantidade_de_permutacoes(n, r):
+    return (factorial(n) / factorial(n - r))

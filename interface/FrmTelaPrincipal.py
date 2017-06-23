@@ -1,12 +1,10 @@
 # coding=UTF-8
-import sys, os
+import sys
 from PyQt4 import QtGui, QtCore
 from Ui_MainWindow import Ui_MainWindow
 from core.GeradorDeGrafos import GeradorDeGrafos
 from core.DesenhistaDeGrafosNovo import DesenhistaDeGrafos
 from core.DescritorDeGrafos import Descritor_de_grafos
-from AlgoritmoHeuristicaDeForcaBruta import AlgoritmoHeuristicaDeForcaBruta
-from AlgoritmoHeuristicaIsoperimetrica import AlgoritmoHeuristicaIsoperimetrica
 from ExperimentoI import ExperimentoI
 
 from ast import literal_eval as make_tuple
@@ -84,6 +82,7 @@ class FrmTelaPrincipal(QtGui.QMainWindow):
         desenhista = DesenhistaDeGrafos(self.grafo_exibido)
         desenhista.efetuar_particionamento_isoperimetrico()
         desenhista.destacar_arestas(arestas_cheeger, 'b')
+        desenhista.adicionar_labels()
         return desenhista.obter_grafo_plotado()
 
     def atualizar_memo(self):

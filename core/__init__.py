@@ -1,4 +1,4 @@
 # __init__.py
 
 from DoubleBroom import DoubleBroom
-from DescritorDeArestasDeArvoreT import DescritorDeArestasDeArvoreT
+from DescritorDeArestasDeArvoreDoubleBroom import DescritorDeArestasDeArvoreDoubleBroom

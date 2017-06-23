@@ -1,5 +1,5 @@
 from Grafo import Grafo
-from DescritorDeArestasDeArvoreT import DescritorDeArestasDeArvoreT
+from DescritorDeArestasDeArvoreDoubleBroom import DescritorDeArestasDeArvoreDoubleBroom
 
 class DoubleBroom(Grafo):
     def __init__(self, grafo_nx, d, n, k, l, nome=""):
@@ -8,7 +8,7 @@ class DoubleBroom(Grafo):
         self.n = n
         self.k = k
         self.l = l
-        self.descritor_de_arestas = DescritorDeArestasDeArvoreT(self)
+        self.descritor_de_arestas = DescritorDeArestasDeArvoreDoubleBroom(self)
 
     def obter_lista_de_ids_de_vertices_intermediarios(self):
         lista_de_vertices_intermediarios = []
