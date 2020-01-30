@@ -1,2 +1,2 @@
-# Experigrafo
-Programa para realização de experimentos em grafos visando o aumento da conectividade algébrica
+# Anagrafo
+Programa para realização de analise espectral em grafos e experimentos relacionados à conectividade algébrica
